@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -261,8 +261,124 @@
         color: var(--muted) !important;
       }
       .esri-attribution__sources { color: var(--muted) !important; }
-      .esri-legend { max-height: 60vh !important; }
+      .esri-legend {
+        max-height: 60vh !important;
+        background: var(--panel) !important;
+        background-color: var(--panel) !important;
+        color: var(--ink) !important;
+        border: 1px solid var(--line) !important;
+        border-radius: 12px !important;
+        backdrop-filter: blur(12px) !important;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.22) !important;
+        padding: 8px !important;
+        overflow: auto !important;
+      }
       .esri-ui-corner { max-height: 90%; }
+
+      .esri-legend,
+      .esri-legend *,
+      .esri-widget.esri-legend,
+      .esri-widget.esri-legend * {
+        color: var(--ink) !important;
+        opacity: 1 !important;
+      }
+
+      .esri-legend__service,
+      .esri-legend__group-layer,
+      .esri-legend__layer,
+      .esri-legend__layer-table,
+      .esri-legend__layer-body,
+      .esri-legend__message {
+        background: transparent !important;
+      }
+
+      .esri-legend__layer-table,
+      .esri-legend__service {
+        border-color: var(--line) !important;
+      }
+
+      .esri-legend__layer-caption,
+      .esri-legend__service-label,
+      .esri-legend__layer-title,
+      .esri-legend__label,
+      .esri-legend__symbol-label,
+      .esri-legend__message {
+        color: var(--ink) !important;
+      }
+
+      .esri-legend__layer-caption,
+      .esri-legend__service-label,
+      .esri-legend__layer-title {
+        font-weight: 600 !important;
+      }
+
+      .esri-legend .esri-scrollbar__thumb,
+      .esri-legend::-webkit-scrollbar-thumb {
+        background: var(--muted) !important;
+      }
+
+      .esri-legend::-webkit-scrollbar {
+        width: 10px;
+      }
+      
+      /* Primary Map Action Buttons (Home, Search, Legend Toggle) */
+      .esri-widget--button,
+      .esri-expand__button {
+        background-color: var(--accent) !important;
+        border-radius: 12px !important;
+        margin: 2px !important;
+        transition: all 0.2s ease-in-out !important;
+        border: none !important;
+      }
+      .esri-widget--button:hover,
+      .esri-expand__button:hover {
+        background-color: var(--accent) !important;
+        filter: brightness(1.1);
+        transform: scale(1.05);
+      }
+      .esri-widget--button span,
+      .esri-expand__icon {
+        color: #ffffff !important;
+      }
+      .esri-expand__icon-number--expanded { 
+        background: var(--accent) !important; 
+      }
+
+      /* Search Widget Glassmorphism */
+      .esri-search__form {
+        background-color: var(--card) !important;
+        border: 1px solid var(--line) !important;
+        border-radius: 12px !important;
+        overflow: hidden;
+      }
+      .esri-search__input {
+        background-color: transparent !important;
+        color: var(--ink) !important;
+      }
+      .esri-search__submit-button {
+        background-color: var(--accent) !important;
+        color: #ffffff !important;
+        border: none !important;
+      }
+      .esri-search__clear-button {
+        background-color: transparent !important;
+        color: var(--muted) !important;
+      }
+      .esri-search__menu {
+        background-color: var(--panel) !important;
+        backdrop-filter: blur(12px);
+        color: var(--ink) !important;
+        border: 1px solid var(--line) !important;
+        border-radius: 12px !important;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.4) !important;
+      }
+      .esri-search__menu-item:hover {
+        background-color: var(--accent) !important;
+        color: #ffffff !important;
+      }
+      .esri-expand__icon-number--expanded { 
+        background: var(--accent) !important; 
+      }
 
       #loadingOverlay {
         position: absolute;
@@ -911,12 +1027,12 @@
           view,
           hideLayersNotInCurrentView: true
         });
+
         const searchWidget = new Search({ view });
         const homeWidget = new Home({ view });
 
         view.ui.add(searchWidget, "top-right");
         view.ui.add(homeWidget, "top-left");
-        // view.ui.add(layerList, "top-right");
         view.ui.add(legend, "bottom-right");
 
         // Safe Loader Reveal
