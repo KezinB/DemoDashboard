@@ -114,6 +114,7 @@
         grid-template-columns: 400px 1fr; 
         min-height: 0; 
         position: relative;
+        flex: 1;
       }
       .panel {
         background: var(--panel);
@@ -144,7 +145,7 @@
 
       /* Responsive Media Queries */
       @media (max-width: 1024px) {
-        .layout { grid-template-columns: 1fr; }
+        .layout { grid-template-columns: 1fr; grid-template-rows: 1fr; height: 100%; }
         .menu-btn { display: flex; }
         .panel {
           position: fixed;
@@ -166,7 +167,13 @@
         .theme-toggle { padding: 6px 8px; font-size: 12px; border-radius: 8px; }
         .tabs-nav { height: auto; padding: 10px 12px; flex-wrap: wrap; }
         .panel { top: 100px; width: 280px; }
-        .plots-grid { padding: 10px; }
+        .plots-grid { padding: 12px; gap: 16px; }
+        .stats-summary { grid-template-columns: 1fr 1fr; gap: 8px; }
+        .plots-content { grid-template-columns: 1fr; gap: 12px; }
+        .plot-card { padding: 16px; }
+        .plot-canvas-container { height: 260px; }
+        .stat-card .value { font-size: 18px; }
+        .stat-card .label { font-size: 10px; }
       }
       
       #mapView {
@@ -206,7 +213,7 @@
         border-color: var(--accent);
         box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
       }
-      .tab-content { display: none; flex: 1; min-height: 0; }
+      .tab-content { display: none; flex-direction: column; flex: 1; min-height: 0; height: 100%; overflow: hidden; }
       .tab-content.active { display: flex; }
 
       /* Plots Dashboard Grid */
