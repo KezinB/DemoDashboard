@@ -1,0 +1,5 @@
+# Exclude index copy files
+index copy*.html
+.gemini/
+*~
+*.log
