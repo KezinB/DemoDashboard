@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -10,7 +10,7 @@
     <style>
       :root {
         --bg: #f8fafc;
-        --panel: rgba(255, 255, 255, 0.8);
+        --panel: rgba(255, 255, 255, 0.85);
         --ink: #0f172a;
         --muted: #64748b;
         --accent: #3b82f6;
@@ -20,7 +20,7 @@
       }
       body.dark-theme {
         --bg: #0f172a;
-        --panel: rgba(30, 41, 59, 0.8);
+        --panel: rgba(30, 41, 59, 0.85);
         --ink: #f1f5f9;
         --muted: #94a3b8;
         --accent: #60a5fa;
@@ -28,7 +28,8 @@
         --glass: rgba(15, 23, 42, 0.7);
         --card: #1e293b;
       }
-      * { box-sizing: border-box; transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; }
+
+      * { box-sizing: border-box; }
       html, body {
         margin: 0;
         padding: 0;
@@ -37,12 +38,16 @@
         background: var(--bg);
         color: var(--ink);
       }
-      .app { 
-        display: grid; 
-        grid-template-rows: auto auto 1fr auto; 
-        height: 100vh; 
-        overflow: hidden; 
+
+      .app {
+        display: grid;
+        grid-template-rows: auto auto 1fr auto;
+        height: 100dvh;
+        height: 100vh;
+        min-height: 0;
+        overflow: hidden;
       }
+
       .topbar {
         height: 60px;
         padding: 0 20px;
@@ -53,7 +58,6 @@
         justify-content: space-between;
         align-items: center;
         z-index: 100;
-        flex-shrink: 0;
       }
       .top-left { display: flex; align-items: center; gap: 12px; }
       .menu-btn {
@@ -65,33 +69,9 @@
         border-radius: 8px;
         cursor: pointer;
       }
-      .brand h1 { margin: 0; font-size: 17px; font-weight: 700; letter-spacing: -0.5px; }
+      .brand h1 { margin: 0; font-size: 17px; font-weight: 700; letter-spacing: -0.4px; }
       .brand p { margin: 0; font-size: 12px; color: var(--muted); }
-      
-      .footer {
-        padding: 16px 24px;
-        border-top: 1px solid var(--line);
-        background: var(--glass);
-        backdrop-filter: blur(12px);
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        font-size: 13px;
-        color: var(--muted);
-        z-index: 10;
-        letter-spacing: 0.2px;
-      }
-      
-      .esri-attribution {
-        background: var(--glass) !important;
-        padding: 10px 16px !important;
-        font-size: 13px !important;
-        height: auto !important;
-        backdrop-filter: blur(8px);
-        color: var(--muted) !important;
-      }
-      .esri-attribution__sources { color: var(--muted) !important; }
-      
+
       .theme-toggle {
         background: var(--card);
         border: 1px solid var(--line);
@@ -100,89 +80,10 @@
         border-radius: 12px;
         cursor: pointer;
         font-size: 14px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         font-family: inherit;
         font-weight: 600;
       }
-      .theme-toggle:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
 
-      .layout { 
-        display: grid; 
-        grid-template-columns: 400px 1fr; 
-        min-height: 0; 
-        position: relative;
-        flex: 1;
-      }
-      .panel {
-        background: var(--panel);
-        border-right: 1px solid var(--line);
-        overflow-y: auto;
-        padding: 12px;
-        backdrop-filter: blur(8px);
-        transition: transform 0.3s ease;
-        z-index: 50;
-      }
-      .overlay {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(0,0,0,0.5);
-        backdrop-filter: blur(4px);
-        z-index: 40;
-      }
-      .section {
-        background: var(--card);
-        border: 1px solid var(--line);
-        border-radius: 12px;
-        padding: 12px;
-        margin-bottom: 12px;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      }
-      .section h2 { margin: 0 0 8px; font-size: 14px; font-weight: 600; color: var(--ink); }
-
-      /* Responsive Media Queries */
-      @media (max-width: 1024px) {
-        .layout { grid-template-columns: 1fr; grid-template-rows: 1fr; height: 100%; }
-        .menu-btn { display: flex; }
-        .panel {
-          position: fixed;
-          top: 110px; /* Below Topbar + TabsNav */
-          bottom: 50px; /* Above Footer */
-          left: 0;
-          width: 320px;
-          transform: translateX(-100%);
-          border-right: 1px solid var(--line);
-          box-shadow: 10px 0 30px rgba(0,0,0,0.2);
-        }
-        .panel.active { transform: translateX(0); }
-        .overlay.active { display: block; }
-      }
-      @media (max-width: 768px) {
-        .brand h1 { font-size: 15px; }
-        .brand p { display: none; }
-        .topbar { height: 50px; padding: 0 12px; }
-        .theme-toggle { padding: 6px 8px; font-size: 12px; border-radius: 8px; }
-        .tabs-nav { height: auto; padding: 10px 12px; flex-wrap: wrap; }
-        .panel { top: 100px; width: 280px; }
-        .plots-grid { padding: 12px; gap: 16px; }
-        .stats-summary { grid-template-columns: 1fr 1fr; gap: 8px; }
-        .plots-content { grid-template-columns: 1fr; gap: 12px; }
-        .plot-card { padding: 16px; }
-        .plot-canvas-container { height: 260px; }
-        .stat-card .value { font-size: 18px; }
-        .stat-card .label { font-size: 10px; }
-      }
-      
-      #mapView {
-        height: 100%;
-        width: 100%;
-        outline: none;
-      }
-      
-      /* Tabs Navigation */
       .tabs-nav {
         height: 50px;
         display: flex;
@@ -191,7 +92,6 @@
         border-bottom: 1px solid var(--line);
         background: var(--bg);
         align-items: center;
-        flex-shrink: 0;
       }
       .tab-btn {
         background: var(--card);
@@ -199,82 +99,78 @@
         color: var(--muted);
         padding: 0 16px;
         height: 36px;
-        display: flex;
-        align-items: center;
         border-radius: 8px;
         cursor: pointer;
         font-weight: 600;
         font-size: 13px;
-        transition: all 0.2s;
       }
       .tab-btn.active {
         background: var(--accent);
         color: #fff;
         border-color: var(--accent);
-        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
       }
-      .tab-content { display: none; flex-direction: column; flex: 1; min-height: 0; height: 100%; overflow: hidden; }
+
+      .tab-content {
+        display: none;
+        flex-direction: column;
+        flex: 1;
+        min-height: 0;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+      }
       .tab-content.active { display: flex; }
 
-      /* Plots Dashboard Grid */
-      .plots-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        padding: 16px;
+      #tab-maps { min-height: 0; }
+      #tab-maps .layout {
+        display: grid;
+        grid-template-columns: 400px 1fr;
+        min-height: 0;
+        height: 100%;
+        flex: 1;
+      }
+
+      .panel {
         background: var(--panel);
+        border-right: 1px solid var(--line);
         overflow-y: auto;
+        padding: 12px;
+        backdrop-filter: blur(8px);
+        z-index: 50;
+      }
+
+      #mapView {
+        position: relative;
         width: 100%;
+        height: 100%;
+        min-height: 300px;
+        outline: none;
       }
-      .stats-summary {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 12px;
-        margin-bottom: 8px;
-      }
-      .stat-card {
-        background: var(--card);
-        border: 1px solid var(--line);
-        border-radius: 12px;
-        padding: 16px;
-        text-align: center;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      }
-      .stat-card .value { font-size: 24px; font-weight: 700; color: var(--accent); }
-      .stat-card .label { font-size: 12px; color: var(--muted); text-transform: uppercase; margin-top: 4px; }
 
-      .plots-content {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-        gap: 12px;
+      .overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+        z-index: 40;
       }
-      .plot-card {
-        background: var(--card);
-        border: 1px solid var(--line);
-        border-radius: 16px;
-        padding: 16px;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-      .plot-card h3 { margin: 0; font-size: 15px; font-weight: 600; }
-      .plot-canvas-container { flex: 1; min-height: 250px; display: flex; align-items: center; justify-content: center; }
+      .overlay.active { display: block; }
 
-      .sources { display: grid; gap: 10px; }
-      .source {
-        background: var(--bg);
+      .section {
+        background: var(--card);
         border: 1px solid var(--line);
         border-radius: 12px;
         padding: 12px;
-        transition: transform 0.2s;
+        margin-bottom: 12px;
       }
-      .source:hover { border-color: var(--accent); }
-      .source strong { display: block; font-size: 13px; margin-bottom: 4px; }
-      .source a { color: var(--accent); text-decoration: none; font-size: 12px; font-weight: 600; }
-      .source a:hover { text-decoration: underline; }
+      .section h2 { margin: 0 0 8px; font-size: 14px; font-weight: 600; }
 
       .controls { display: grid; gap: 12px; }
+      .toggles { display: grid; gap: 10px; }
+      .toggle-row { display: flex; gap: 10px; align-items: center; font-size: 13px; cursor: pointer; }
+      .toggle-row input { width: 16px; height: 16px; accent-color: var(--accent); }
+
       label { font-size: 13px; font-weight: 500; color: var(--muted); display: block; margin-bottom: 6px; }
       select {
         width: 100%;
@@ -285,92 +181,89 @@
         color: var(--ink);
         font-family: inherit;
         font-size: 13px;
-        outline: none;
       }
-      select:focus { border-color: var(--accent); }
+      select:focus { border-color: var(--accent); outline: none; }
 
-      .toggles { display: grid; gap: 10px; }
-      .toggle-row { 
-        display: flex; 
-        gap: 10px; 
-        align-items: center; 
-        font-size: 13px; 
-        cursor: pointer; 
-        padding: 4px 0;
+      .sources { display: grid; gap: 10px; }
+      .source {
+        background: var(--bg);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 12px;
       }
-      .toggle-row input {
-        width: 16px;
-        height: 16px;
-        accent-color: var(--accent);
-        cursor: pointer;
-      }
+      .source strong { display: block; font-size: 13px; margin-bottom: 4px; }
+      .source a { color: var(--accent); text-decoration: none; font-size: 12px; font-weight: 600; }
+      .source a:hover { text-decoration: underline; }
 
       iframe {
         width: 100%;
-        height: 600px;
+        height: 420px;
         border: 1px solid var(--line);
         border-radius: 12px;
         background: #fff;
         margin-top: 8px;
       }
-      
-      .esri-legend {
-        max-height: 600px !important;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+
+      .plots-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px;
+        background: var(--panel);
+        overflow-y: auto;
       }
+      .stats-summary {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 12px;
+      }
+      .stat-card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 16px;
+        text-align: center;
+      }
+      .stat-card .value { font-size: 24px; font-weight: 700; color: var(--accent); }
+      .stat-card .label { font-size: 12px; color: var(--muted); text-transform: uppercase; margin-top: 4px; }
+
+      .plots-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+        gap: 12px;
+      }
+      .plot-card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .plot-card h3 { margin: 0; font-size: 15px; font-weight: 600; }
+      .plot-canvas-container { min-height: 250px; }
+
+      .footer {
+        padding: 16px 24px;
+        border-top: 1px solid var(--line);
+        background: var(--glass);
+        backdrop-filter: blur(12px);
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      .esri-attribution {
+        background: var(--glass) !important;
+        color: var(--muted) !important;
+      }
+      .esri-attribution__sources { color: var(--muted) !important; }
+      .esri-legend { max-height: 60vh !important; }
       .esri-ui-corner { max-height: 90%; }
-      #mapView { min-height: 0; }
-      .note { margin-top: 10px; font-size: 12px; color: var(--muted); line-height: 1.4; }
-      details summary::-webkit-details-marker { display: none; }
 
-      /* Custom Scrollbar */
-      ::-webkit-scrollbar { width: 8px; height: 8px; }
-      ::-webkit-scrollbar-track { background: var(--panel); }
-      ::-webkit-scrollbar-thumb { 
-        background: var(--accent); 
-        border-radius: 10px; 
-        border: 2px solid var(--panel);
-      }
-      ::-webkit-scrollbar-thumb:hover { background: #60a5fa; }
-      
-      /* Essential Esri Widget Overrides */
-      details summary { outline: none; }
-
-      /* ArcGIS Widget Overrides */
-      .esri-ui .esri-component { box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important; border-radius: 12px !important; overflow: hidden; }
-      
-      .esri-home.esri-widget--button { 
-        border-radius: 50% !important; 
-        border: 2px solid var(--accent) !important; 
-        margin-top: 8px !important;
-        width: 38px !important;
-        height: 38px !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        background-color: var(--card) !important;
-      }
-
-      .dark-theme .esri-widget, .dark-theme .esri-menu { background-color: #1e293b !important; color: #f1f5f9 !important; }
-      .dark-theme .esri-widget--button { background-color: #1e293b !important; color: #f1f5f9 !important; }
-
-      /* High Priority Blue Accent Overrides */
-      .esri-popup__header { border-bottom: 3px solid var(--accent) !important; }
-      .esri-popup__button, .esri-popup__action { color: var(--accent) !important; }
-      .esri-search__submit-button { background-color: var(--accent) !important; color: #fff !important; }
-      .esri-ui .esri-button--secondary { color: var(--accent) !important; border-color: var(--accent) !important; }
-      .esri-legend__layer-caption { color: var(--accent) !important; font-weight: 700 !important; }
-
-      /* Forced Blue Hover for ALL Map Buttons */
-      div.esri-ui .esri-widget--button:hover,
-      div.esri-ui .esri-widget--button:hover *,
-      div.esri-ui .esri-search__submit-button:hover,
-      div.esri-ui .esri-search__submit-button:hover span {
-        background-color: var(--accent) !important;
-        color: #ffffff !important;
-      }
-
-      /* Loading Overlay styling */
       #loadingOverlay {
         position: absolute;
         top: 0;
@@ -383,7 +276,7 @@
         align-items: center;
         justify-content: center;
         z-index: 2000;
-        transition: opacity 0.6s ease, visibility 0.6s;
+        transition: opacity 0.5s ease, visibility 0.5s;
       }
       #loadingOverlay.hidden {
         opacity: 0;
@@ -397,21 +290,39 @@
         border-top: 4px solid var(--accent);
         border-radius: 50%;
         animation: spin 1s linear infinite;
-        margin-bottom: 20px;
+        margin-bottom: 16px;
       }
-      @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-      .loading-text { font-size: 15px; font-weight: 600; color: var(--muted); letter-spacing: 0.5px; text-transform: uppercase; }
+      @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+      .loading-text { font-size: 14px; font-weight: 600; color: var(--muted); }
 
       @media (max-width: 1024px) {
-        .layout {
-          grid-template-columns: 1fr;
-          grid-template-rows: auto 1fr;
-        }
+        .menu-btn { display: inline-flex; }
+        #tab-maps .layout { grid-template-columns: 1fr; }
         .panel {
-          border-right: none;
-          max-height: 50vh;
-          padding: 16px;
+          position: fixed;
+          top: 110px;
+          bottom: 60px;
+          left: 0;
+          width: min(320px, 86vw);
+          transform: translateX(-100%);
+          transition: transform 0.25s ease;
+          box-shadow: 10px 0 30px rgba(0,0,0,0.2);
+          border-right: 1px solid var(--line);
         }
+        .panel.active { transform: translateX(0); }
+      }
+
+      @media (max-width: 768px) {
+        .topbar { height: 52px; padding: 0 12px; }
+        .brand h1 { font-size: 15px; }
+        .brand p { display: none; }
+        .theme-toggle { padding: 6px 8px; font-size: 12px; border-radius: 8px; }
+        .tabs-nav { height: auto; padding: 8px 12px; flex-wrap: wrap; }
+        .panel { top: 98px; bottom: 56px; }
+        iframe { height: 280px; }
+        .plots-grid { padding: 12px; }
+        .plots-content { grid-template-columns: 1fr; }
+        .stats-summary { grid-template-columns: 1fr 1fr; }
       }
     </style>
     <script src="https://js.arcgis.com/4.31/"></script>
@@ -435,8 +346,8 @@
       </header>
       
       <nav class="tabs-nav">
-        <button class="tab-btn active" onclick="switchTab('maps')">Spatial Maps</button>
-        <button class="tab-btn" onclick="switchTab('plots')">Data Analytics</button>
+        <button class="tab-btn active" onclick="switchTab('maps', this)">Spatial Maps</button>
+        <button class="tab-btn" onclick="switchTab('plots', this)">Data Analytics</button>
       </nav>
 
       <div id="tab-maps" class="tab-content active">
@@ -580,16 +491,45 @@
       const utilitySelect = document.getElementById("utilityFilter");
       const yearSelect = document.getElementById("yearFilter");
       const statusSelect = document.getElementById("statusFilter");
+      
+      function forceHideMapLoader() {
+        const overlay = document.getElementById("loadingOverlay");
+        if (overlay) overlay.classList.add("hidden");
+      }
 
-      function switchTab(tabId) {
+      function showLoaderError(message) {
+        const overlay = document.getElementById("loadingOverlay");
+        const text = overlay ? overlay.querySelector(".loading-text") : null;
+        if (text && message) {
+          text.textContent = "Map load issue: " + message;
+        }
+        forceHideMapLoader();
+      }
+
+      window.addEventListener("load", () => setTimeout(forceHideMapLoader, 3500));
+      setTimeout(forceHideMapLoader, 9000);
+      window.addEventListener("error", (e) => {
+        if (e && e.message) showLoaderError(e.message);
+      });
+      window.addEventListener("unhandledrejection", () => {
+        showLoaderError("unexpected script error");
+      });
+
+      function switchTab(tabId, clickedBtn) {
         // Auto-close menu on mobile when switching tabs
         if (window.innerWidth <= 1024) toggleMenu(false);
 
         document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
         document.getElementById(`tab-${tabId}`).classList.add('active');
-        event.currentTarget.classList.add('active');
-        if (tabId === 'maps' && mapReady) window.dispatchEvent(new Event('resize')); 
+
+        if (clickedBtn) {
+          clickedBtn.classList.add('active');
+        }
+
+        if (tabId === 'maps' && mapReady && mapViewRef) {
+          setTimeout(() => mapViewRef.resize(), 60);
+        }
       }
 
       function toggleMenu(force) {
@@ -605,11 +545,20 @@
       document.getElementById('overlay').addEventListener('click', () => toggleMenu(false));
 
       // Ensure map resizes when window changes
-      window.addEventListener('resize', () => {
-        if (mapReady) window.dispatchEvent(new Event('resize'));
-      });
+      const scheduleMapResize = (() => {
+        let timer = null;
+        return () => {
+          if (!mapReady || !mapViewRef) return;
+          clearTimeout(timer);
+          timer = setTimeout(() => mapViewRef.resize(), 120);
+        };
+      })();
+
+      window.addEventListener('resize', scheduleMapResize);
+      window.addEventListener('orientationchange', scheduleMapResize);
 
       let mapReady = false;
+      let mapViewRef = null;
       let charts = {};
 
       function initCharts() {
@@ -948,7 +897,6 @@
         };
 
         map.addMany([nationalGridLayer, ejLayer, boreholeLayer, gasLeakGroup, gsepGroup]);
-
         const view = new MapView({
           container: "mapView",
           map,
@@ -956,6 +904,7 @@
           zoom: 8,
           constraints: { minZoom: 7, maxZoom: 19 }
         });
+        mapViewRef = view;
 
         // const layerList = new LayerList({ view });
         const legend = new Legend({
@@ -976,11 +925,22 @@
           if (overlay) overlay.classList.add("hidden");
         };
 
+        
+        window.__hideMapLoader = hideOverlay;
+
         view.when(() => {
-          setTimeout(hideOverlay, 1500); 
+          // Force a resize calculation to fix mobile blanking
+          setTimeout(() => {
+            view.resize();
+            hideOverlay();
+          }, 1500);
         });
         
-        setTimeout(hideOverlay, 4000);
+        // Final fallback to hide overlay if Esri takes too long
+        setTimeout(() => {
+           if (mapReady) view.resize();
+           hideOverlay();
+        }, 4000);
 
         function hasYear(title, yearValue) {
           if (yearValue === "all") return true;
@@ -1089,7 +1049,7 @@
 
         // First application of filters & chart population
         applyFilters();
-      });
+      }, function () { showLoaderError("ArcGIS modules failed to load"); });
     </script>
   </body>
 </html>
