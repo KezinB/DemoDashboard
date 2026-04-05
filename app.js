@@ -15,6 +15,15 @@ const healthList = document.getElementById("healthList");
 const healthSummary = document.getElementById("healthSummary");
 const hotspotList = document.getElementById("hotspotList");
 const featureInspector = document.getElementById("featureInspector");
+const mapStatusText = document.getElementById("mapStatusText");
+const activeFilterSummary = document.getElementById("activeFilterSummary");
+const heroRegion = document.getElementById("heroRegion");
+const heroUtility = document.getElementById("heroUtility");
+const heroLayerMix = document.getElementById("heroLayerMix");
+const heroVisibleCount = document.getElementById("heroVisibleCount");
+const summaryChips = document.getElementById("summaryChips");
+const summaryNarrative = document.getElementById("summaryNarrative");
+const analyticsSummaryChips = document.getElementById("analyticsSummaryChips");
 const compareEnabled = Boolean(compareUtilityA && compareUtilityB);
 
 const BOOKMARK_STORAGE_KEY = "platanus-dashboard-bookmarks";
@@ -41,7 +50,7 @@ const appState = {
 function parseIncomingState() {
   const params = new URLSearchParams(window.location.search);
   return {
-    theme: params.get("theme"),
+    theme: params.get("theme") || localStorage.getItem("theme"),
     utility: params.get("utility"),
     year: params.get("year"),
     status: params.get("status"),
@@ -96,6 +105,94 @@ function updateThemeLabel() {
   const dark = document.body.classList.contains("dark-theme");
   const themeLabel = document.getElementById("themeLabel");
   if (themeLabel) themeLabel.textContent = dark ? "Light Mode" : "Dark Mode";
+}
+
+function formatLabel(value) {
+  if (!value) return "All";
+  return String(value)
+    .replace(/-/g, " ")
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
+function getActiveLayerMix(toggles) {
+  const labels = [];
+  if (toggles.toggleGsep) labels.push("GSEP");
+  if (toggles.toggleLeaks) labels.push("Leaks");
+  if (toggles.toggleEJ) labels.push("EJ");
+  if (toggles.toggleBorehole) labels.push("Boreholes");
+  if (toggles.toggleNationalGrid) labels.push("Hosting");
+  return labels.length ? labels.join(" + ") : "No layers";
+}
+
+function getChartPalette() {
+  const styles = getComputedStyle(document.body);
+  const accent = styles.getPropertyValue("--accent").trim() || "#3b82f6";
+  const ink = styles.getPropertyValue("--ink").trim() || "#0f172a";
+  const muted = styles.getPropertyValue("--muted").trim() || "#64748b";
+  const line = styles.getPropertyValue("--line").trim() || "rgba(148, 163, 184, 0.2)";
+  const accentSecondary = styles.getPropertyValue("--accent-secondary").trim() || "#f97316";
+  return {
+    accent,
+    ink,
+    muted,
+    line,
+    accentSecondary,
+    series: [accent, "#38bdf8", "#f59e0b", "#10b981", "#a78bfa", accentSecondary]
+  };
+}
+
+function refreshChartTheme() {
+  const palette = getChartPalette();
+  Object.values(charts).forEach((chart) => {
+    if (!chart) return;
+    chart.options.plugins.legend.labels.color = palette.muted;
+    if (chart.options.scales && chart.options.scales.y) {
+      chart.options.scales.y.ticks.color = palette.muted;
+      chart.options.scales.y.grid.color = palette.line;
+    }
+    if (chart.options.scales && chart.options.scales.x) {
+      chart.options.scales.x.ticks.color = palette.muted;
+      chart.options.scales.x.grid.color = "transparent";
+    }
+    chart.update();
+  });
+}
+
+function updateExperienceSummary(visibleFeatureCount) {
+  const toggles = getCurrentToggles();
+  const regionLabel = formatLabel(regionSelect.value || "statewide");
+  const utilityLabel = utilitySelect.value === "all" ? "All utilities" : utilitySelect.value;
+  const yearLabel = yearSelect.value === "all" ? "All years" : yearSelect.value;
+  const statusLabel = statusSelect.value === "all" ? "All statuses" : formatLabel(statusSelect.value);
+  const layerMix = getActiveLayerMix(toggles);
+
+  if (mapStatusText) mapStatusText.textContent = visibleFeatureCount > 0 ? "Live map" : "Filtering";
+  if (activeFilterSummary) activeFilterSummary.textContent = regionLabel;
+  if (heroRegion) heroRegion.textContent = regionLabel;
+  if (heroUtility) heroUtility.textContent = utilityLabel;
+  if (heroLayerMix) heroLayerMix.textContent = layerMix;
+  if (heroVisibleCount) heroVisibleCount.textContent = formatNumber(visibleFeatureCount);
+
+  if (summaryChips) {
+    summaryChips.innerHTML = `
+      <span class="badge">${layerMix}</span>
+      <span class="badge">${utilityLabel}</span>
+      <span class="badge">${yearLabel}</span>
+      <span class="badge">${statusLabel}</span>
+    `;
+  }
+
+  if (summaryNarrative) {
+    summaryNarrative.textContent = `${regionLabel} is in focus with ${layerMix.toLowerCase()} visible. The map is currently filtered to ${utilityLabel.toLowerCase()}, ${yearLabel.toLowerCase()}, and ${statusLabel.toLowerCase()}.`;
+  }
+
+  if (analyticsSummaryChips) {
+    analyticsSummaryChips.innerHTML = `
+      <span class="badge">${formatNumber(visibleFeatureCount)} visible features</span>
+      <span class="badge">${formatNumber(appState.latestHotspots.length)} hotspots</span>
+      <span class="badge">${regionLabel}</span>
+    `;
+  }
 }
 
 function renderFeatureInspector(graphic) {
@@ -354,6 +451,9 @@ document.getElementById("overlay").addEventListener("click", () => toggleMenu(fa
 sourcePicker.addEventListener("change", (event) => {
   sourceFrame.src = event.target.value;
 });
+document.querySelectorAll("[data-tab]").forEach((button) => {
+  button.addEventListener("click", () => switchTab(button.dataset.tab, button));
+});
 
 const scheduleMapResize = (() => {
   let timer = null;
@@ -368,7 +468,7 @@ window.addEventListener("resize", scheduleMapResize);
 window.addEventListener("orientationchange", scheduleMapResize);
 
 function initCharts() {
-  const defaultTextColor = "#94a3b8";
+  const palette = getChartPalette();
   const createChart = (id, type, label, bgColor) => {
     return new Chart(document.getElementById(id), {
       type,
@@ -388,7 +488,7 @@ function initCharts() {
         plugins: {
           legend: {
             labels: {
-              color: defaultTextColor,
+              color: palette.muted,
               font: { family: "Outfit" }
             }
           }
@@ -396,24 +496,24 @@ function initCharts() {
         scales: type === "bar" ? {
           y: {
             beginAtZero: true,
-            grid: { color: "rgba(255,255,255,0.05)" },
-            ticks: { color: defaultTextColor, precision: 0 }
+            grid: { color: palette.line },
+            ticks: { color: palette.muted, precision: 0 }
           },
           x: {
             grid: { display: false },
-            ticks: { color: defaultTextColor }
+            ticks: { color: palette.muted }
           }
         } : {}
       }
     });
   };
 
-  charts.utility = createChart("chartUtilityDistribution", "bar", "Visible Features", "#3b82f6");
-  charts.status = createChart("chartGsepStatus", "pie", "Project Statuses", ["#3b82f6", "#60a5fa", "#93c5fd", "#bfdbfe", "#10b981"]);
+  charts.utility = createChart("chartUtilityDistribution", "bar", "Visible Features", palette.accent);
+  charts.status = createChart("chartGsepStatus", "pie", "Project Statuses", palette.series.slice(0, 5));
   charts.hosting = createChart("chartHostingTiers", "doughnut", "Hosting Access", ["#ef4444", "#f59e0b", "#10b981"]);
-  charts.timeline = createChart("chartBatchTimeline", "bar", "Projects by Year", "#60a5fa");
+  charts.timeline = createChart("chartBatchTimeline", "bar", "Projects by Year", "#38bdf8");
   charts.safety = createChart("chartSafetyStatus", "doughnut", "Repair Status", ["#10b981", "#f59e0b"]);
-  charts.compare = createChart("chartComparison", "bar", "Comparison", ["#0ea5e9", "#f97316"]);
+  charts.compare = createChart("chartComparison", "bar", "Comparison", [palette.accent, palette.accentSecondary]);
 }
 
 function updateYearList(allLayerMeta, toggles) {
@@ -676,6 +776,7 @@ async function queryFeatureCounts(view, visibleEntries) {
 }
 
 function updateChartsFromAnalytics(analytics, compareAValue, compareBValue, hostingLayer, portals) {
+  const palette = getChartPalette();
   const utilityCounts = {};
   const statusCounts = {};
   const timelineCounts = {};
@@ -717,6 +818,7 @@ function updateChartsFromAnalytics(analytics, compareAValue, compareBValue, host
   document.getElementById("statGsepProjects").textContent = formatNumber(gsepLayers);
   document.getElementById("statLeaksTracked").textContent = formatNumber(leakLayers);
   document.getElementById("statVisibleFeatures").textContent = formatNumber(totalFeatures);
+  updateExperienceSummary(totalFeatures);
 
   charts.utility.data.labels = Object.keys(utilityCounts);
   charts.utility.data.datasets[0].data = Object.values(utilityCounts);
@@ -752,7 +854,7 @@ function updateChartsFromAnalytics(analytics, compareAValue, compareBValue, host
         compareMetrics[compareAValue] ? compareMetrics[compareAValue].leaks : 0,
         compareMetrics[compareAValue] ? compareMetrics[compareAValue].gsep : 0
       ],
-      backgroundColor: "#0ea5e9"
+      backgroundColor: palette.accent
     },
     {
       label: compareBValue,
@@ -762,7 +864,7 @@ function updateChartsFromAnalytics(analytics, compareAValue, compareBValue, host
         compareMetrics[compareBValue] ? compareMetrics[compareBValue].leaks : 0,
         compareMetrics[compareBValue] ? compareMetrics[compareBValue].gsep : 0
       ],
-      backgroundColor: "#f97316"
+      backgroundColor: palette.accentSecondary
     }
   ];
   charts.compare.update();
@@ -791,6 +893,7 @@ require([
     esriLink.href = dark ? "https://js.arcgis.com/4.31/esri/themes/dark/main.css" : "https://js.arcgis.com/4.31/esri/themes/light/main.css";
     map.basemap = dark ? "dark-gray-vector" : "gray-vector";
     updateThemeLabel();
+    refreshChartTheme();
   }
 
   updateThemeUI();
@@ -942,6 +1045,7 @@ require([
     const runId = ++analyticsRunId;
     const visibleFeatureEntries = allLayerMeta.filter((entry) => entry.layer.visible);
     document.getElementById("statVisibleFeatures").textContent = "...";
+    updateExperienceSummary(0);
     await buildHotspots(view, visibleFeatureEntries);
     const analytics = await queryFeatureCounts(view, visibleFeatureEntries);
     if (runId !== analyticsRunId) return;
@@ -970,6 +1074,7 @@ require([
     const activeYear = yearSelect.value;
     const activeStatus = statusSelect.value;
     const activeRegion = regionSelect.value;
+    updateExperienceSummary(Number(document.getElementById("statVisibleFeatures").textContent.replace(/,/g, "")) || 0);
 
     gsepGroup.visible = toggles.toggleGsep;
     gasLeakGroup.visible = toggles.toggleLeaks;
