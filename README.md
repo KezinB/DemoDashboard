@@ -1,6 +1,6 @@
 # Massachusetts Utility Intelligence Dashboard
 
-An interactive GIS dashboard for Platanus Labs that combines ArcGIS-based utility mapping with live analytics for Massachusetts GSEP, gas leak, hosting-capacity, EJ, and borehole datasets.
+An interactive GIS dashboard for Platanus Labs that combines ArcGIS-based utility mapping with live analytics for Massachusetts GSEP, gas leak, hosting-capacity, EJ, borehole, and waste-treatment facility datasets.
 
 ## What It Does
 
@@ -21,6 +21,8 @@ An interactive GIS dashboard for Platanus Labs that combines ArcGIS-based utilit
 
 - [index.html](/H:/My%20Drive/Freelance/Platanus%20Labs/map-dashboard/index.html): layout, styling, and ArcGIS widget theming
 - [app.js](/H:/My%20Drive/Freelance/Platanus%20Labs/map-dashboard/app.js): map setup, filters, analytics, bookmarks, sharing, and tab behavior
+- `data/wastewater_graded_facilities.csv`: MassDEP graded wastewater facility list
+- `data/wastewater_groundwater.csv`: MassDEP wastewater plants discharging to groundwater
 
 ## Local Use
 

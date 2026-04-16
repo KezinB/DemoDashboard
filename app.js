@@ -24,9 +24,88 @@ const heroVisibleCount = document.getElementById("heroVisibleCount");
 const summaryChips = document.getElementById("summaryChips");
 const summaryNarrative = document.getElementById("summaryNarrative");
 const analyticsSummaryChips = document.getElementById("analyticsSummaryChips");
+const wastewaterCsvSummary = document.getElementById("wastewaterCsvSummary");
 const compareEnabled = Boolean(compareUtilityA && compareUtilityB);
 
 const BOOKMARK_STORAGE_KEY = "platanus-dashboard-bookmarks";
+const WASTEWATER_CSV_SOURCES = {
+  graded: "data/wastewater_graded_facilities.csv",
+  groundwater: "data/wastewater_groundwater.csv"
+};
+const GRADE_TYPE_LABELS = {
+  M: "Municipal",
+  I: "Industrial",
+  C: "Combined",
+  O: "Other / no grade"
+};
+const TOWN_ALIASES = {
+  ASSONET: "FREETOWN",
+  BALDWINVILLE: "TEMPLETON",
+  BRIGHTON: "BOSTON",
+  "BOSTON ALLSTON": "BOSTON",
+  "BOSTON BRIGHTON": "BOSTON",
+  "BOSTON CHARLESTOWN": "BOSTON",
+  "BOSTON DORCHESTER": "BOSTON",
+  "BOSTON EAST": "BOSTON",
+  "BOSTON HYDE PARK": "BOSTON",
+  "BOSTON ROXBURY": "BOSTON",
+  "BOSTON SOUTH": "BOSTON",
+  BOXBOROURH: "BOXBOROUGH",
+  "BUZZARDS BAY": "BOURNE",
+  BYFIELD: "NEWBURY",
+  CAMDRIDGE: "CAMBRIDGE",
+  CATAUMET: "BOURNE",
+  CHARLEMONTE: "CHARLEMONT",
+  CHARLESTOWN: "BOSTON",
+  DEVENS: "AYER",
+  DORCHESTER: "BOSTON",
+  "E WEYMOUTH": "WEYMOUTH",
+  "EAST BOSTON": "BOSTON",
+  "EAST DEERFIELD": "DEERFIELD",
+  "FALLL RIVER": "FALL RIVER",
+  FOXBORO: "FOXBOROUGH",
+  FRAMINGHAN: "FRAMINGHAM",
+  HOUSATONIC: "GREAT BARRINGTON",
+  "JAMACIA PLAIN": "BOSTON",
+  "JAMAICA PLAIN": "BOSTON",
+  LANESBORO: "LANESBOROUGH",
+  "LONGWOOD - BOSTON": "BOSTON",
+  MANCHESTER: "MANCHESTER-BY-THE-SEA",
+  MARLBORO: "MARLBOROUGH",
+  MATTAPAN: "BOSTON",
+  MIDDLEBORO: "MIDDLEBOROUGH",
+  "MOUNT HERMON": "NORTHFIELD",
+  "MT WASHINGTON": "MOUNT WASHINGTON",
+  "N ANDOVER": "NORTH ANDOVER",
+  "N BILLERICA": "BILLERICA",
+  "NEEDHAM HEIGHTS": "NEEDHAM",
+  "NORTH ATTLEBORO": "NORTH ATTLEBOROUGH",
+  "NORTH CARVER": "CARVER",
+  "NORTH DARTMOUTH": "DARTMOUTH",
+  "NORTH GRAFTON": "GRAFTON",
+  "NORTH WEYMOUTH": "WEYMOUTH",
+  NORTHBORO: "NORTHBOROUGH",
+  NOWOOD: "NORWOOD",
+  "OTIS ANG BASE": "MASHPEE",
+  "OTIS ANG BASEMASHPE": "MASHPEE",
+  "OTTER RIVER": "TEMPLETON",
+  ROXBURY: "BOSTON",
+  "S DEERFIELD": "DEERFIELD",
+  "SHELBURNE FALLS": "SHELBURNE",
+  "SO BOSTON": "BOSTON",
+  "SOUTH BOSTON": "BOSTON",
+  "SOUTH DEERFIELD": "DEERFIELD",
+  "SOUTH DENNIS": "DENNIS",
+  "SOUTH HAMILTON": "HAMILTON",
+  SOUTHBORO: "SOUTHBOROUGH",
+  "TURNER FALLS": "MONTAGUE",
+  "TURNERS FALLS": "MONTAGUE",
+  "WEST SOMERVILLE": "SOMERVILLE",
+  "WEST WARREN": "WARREN",
+  WESTBORO: "WESTBOROUGH",
+  WESTOVER: "CHICOPEE",
+  "WOODS HOLE": "FALMOUTH"
+};
 const REGION_TARGETS = {
   statewide: { center: [-71.7, 42.2], zoom: 8 },
   "greater-boston": { center: [-71.06, 42.36], zoom: 10.5 },
@@ -44,6 +123,14 @@ const appState = {
   bookmarks: [],
   health: [],
   latestHotspots: [],
+  wastewaterCsv: {
+    loaded: false,
+    gradedRows: [],
+    groundwaterRows: [],
+    records: [],
+    townStats: {},
+    summary: null
+  },
   pendingState: parseIncomingState()
 };
 
@@ -63,7 +150,8 @@ function parseIncomingState() {
     toggleLeaks: params.get("leaks"),
     toggleEJ: params.get("ej"),
     toggleBorehole: params.get("borehole"),
-    toggleNationalGrid: params.get("hosting")
+    toggleNationalGrid: params.get("hosting"),
+    toggleWastewater: params.get("wastewater")
   };
 }
 
@@ -89,6 +177,121 @@ function formatNumber(value) {
 function safeText(value) {
   if (value === null || value === undefined || value === "") return "Not available";
   return String(value);
+}
+
+function escapeHtml(value) {
+  return safeText(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function escapeAttribute(value) {
+  return escapeHtml(value);
+}
+
+function parseCsv(text) {
+  const rows = [];
+  let row = [];
+  let value = "";
+  let inQuotes = false;
+
+  for (let i = 0; i < text.length; i += 1) {
+    const char = text[i];
+    const nextChar = text[i + 1];
+
+    if (char === '"') {
+      if (inQuotes && nextChar === '"') {
+        value += '"';
+        i += 1;
+      } else {
+        inQuotes = !inQuotes;
+      }
+    } else if (char === "," && !inQuotes) {
+      row.push(value);
+      value = "";
+    } else if ((char === "\n" || char === "\r") && !inQuotes) {
+      if (char === "\r" && nextChar === "\n") i += 1;
+      row.push(value);
+      if (row.some((cell) => cell.trim() !== "")) rows.push(row);
+      row = [];
+      value = "";
+    } else {
+      value += char;
+    }
+  }
+
+  if (value || row.length) {
+    row.push(value);
+    if (row.some((cell) => cell.trim() !== "")) rows.push(row);
+  }
+
+  const headers = (rows.shift() || []).map((header) => header.trim());
+  return rows.map((cells) => {
+    const record = {};
+    headers.forEach((header, index) => {
+      if (header) record[header] = (cells[index] || "").trim();
+    });
+    return record;
+  });
+}
+
+function normalizeTown(value) {
+  if (!value) return "";
+  const town = String(value)
+    .replace(/\bMA\b.*$/i, "")
+    .replace(/\d{5}.*/g, "")
+    .replace(/\s*\(.*$/g, "")
+    .replace(/,/g, "")
+    .replace(/\./g, "")
+    .trim()
+    .toUpperCase();
+  return TOWN_ALIASES[town] || town;
+}
+
+function getGradeType(grade) {
+  const match = String(grade || "").match(/-\s*([MICO])/i);
+  return match ? match[1].toUpperCase() : "O";
+}
+
+function isWastewaterStatus(statusValue) {
+  return /^ww-/.test(statusValue || "");
+}
+
+function wastewaterRecordMatchesStatus(record, statusValue) {
+  if (!statusValue || statusValue === "all") return true;
+  if (statusValue === "ww-graded") return record.dataset === "graded";
+  if (statusValue === "ww-groundwater") return record.dataset === "groundwater";
+  if (statusValue === "ww-major-facilities") return false;
+  if (statusValue === "ww-municipal") return record.type === "M";
+  if (statusValue === "ww-industrial") return record.type === "I";
+  if (statusValue === "ww-combined") return record.type === "C";
+  if (statusValue === "ww-other") return record.type === "O";
+  return false;
+}
+
+function getWastewaterStatusLabel(statusValue) {
+  const labels = {
+    "ww-graded": "Graded facilities",
+    "ww-groundwater": "Groundwater discharge plants",
+    "ww-major-facilities": "MassDEP major waste-treatment facilities",
+    "ww-municipal": "Municipal facilities",
+    "ww-industrial": "Industrial facilities",
+    "ww-combined": "Combined facilities",
+    "ww-other": "Other / no-grade facilities"
+  };
+  return labels[statusValue] || "Wastewater facilities";
+}
+
+function getUtilityLabel(value) {
+  const labels = {
+    all: "All utilities",
+    MassDEP: "MassDEP / Wastewater",
+    Environmental: "Environmental Justice"
+  };
+  return labels[value] || value;
 }
 
 function setSelectValue(select, value, fallback) {
@@ -121,6 +324,7 @@ function getActiveLayerMix(toggles) {
   if (toggles.toggleEJ) labels.push("EJ");
   if (toggles.toggleBorehole) labels.push("Boreholes");
   if (toggles.toggleNationalGrid) labels.push("Hosting");
+  if (toggles.toggleWastewater) labels.push("Wastewater");
   return labels.length ? labels.join(" + ") : "No layers";
 }
 
@@ -161,7 +365,7 @@ function refreshChartTheme() {
 function updateExperienceSummary(visibleFeatureCount) {
   const toggles = getCurrentToggles();
   const regionLabel = formatLabel(regionSelect.value || "statewide");
-  const utilityLabel = utilitySelect.value === "all" ? "All utilities" : utilitySelect.value;
+  const utilityLabel = getUtilityLabel(utilitySelect.value || "all");
   const yearLabel = yearSelect.value === "all" ? "All years" : yearSelect.value;
   const statusLabel = statusSelect.value === "all" ? "All statuses" : formatLabel(statusSelect.value);
   const layerMix = getActiveLayerMix(toggles);
@@ -175,10 +379,10 @@ function updateExperienceSummary(visibleFeatureCount) {
 
   if (summaryChips) {
     summaryChips.innerHTML = `
-      <span class="badge">${layerMix}</span>
-      <span class="badge">${utilityLabel}</span>
-      <span class="badge">${yearLabel}</span>
-      <span class="badge">${statusLabel}</span>
+      <span class="badge">${escapeHtml(layerMix)}</span>
+      <span class="badge">${escapeHtml(utilityLabel)}</span>
+      <span class="badge">${escapeHtml(yearLabel)}</span>
+      <span class="badge">${escapeHtml(statusLabel)}</span>
     `;
   }
 
@@ -190,7 +394,7 @@ function updateExperienceSummary(visibleFeatureCount) {
     analyticsSummaryChips.innerHTML = `
       <span class="badge">${formatNumber(visibleFeatureCount)} visible features</span>
       <span class="badge">${formatNumber(appState.latestHotspots.length)} hotspots</span>
-      <span class="badge">${regionLabel}</span>
+      <span class="badge">${escapeHtml(regionLabel)}</span>
     `;
   }
 }
@@ -216,8 +420,8 @@ function renderFeatureInspector(graphic) {
   const items = entries.length
     ? entries.map(([key, value]) => `
         <div class="attribute-item">
-          <strong>${key}</strong>
-          <span>${safeText(value)}</span>
+          <strong>${escapeHtml(key)}</strong>
+          <span>${escapeHtml(value)}</span>
         </div>
       `).join("")
     : `
@@ -229,7 +433,7 @@ function renderFeatureInspector(graphic) {
 
   featureInspector.innerHTML = `
     <div class="metric-item">
-      <strong>${layerTitle}</strong>
+      <strong>${escapeHtml(layerTitle)}</strong>
       <span>Spatial feature selected from the current map stack.</span>
     </div>
     <div class="attribute-list">${items}</div>
@@ -276,7 +480,8 @@ function getCurrentToggles() {
     toggleLeaks: document.getElementById("toggleLeaks").checked,
     toggleEJ: document.getElementById("toggleEJ").checked,
     toggleBorehole: document.getElementById("toggleBorehole").checked,
-    toggleNationalGrid: document.getElementById("toggleNationalGrid").checked
+    toggleNationalGrid: document.getElementById("toggleNationalGrid").checked,
+    toggleWastewater: document.getElementById("toggleWastewater").checked
   };
 }
 
@@ -294,6 +499,7 @@ function getCurrentState(view) {
     ej: toggles.toggleEJ ? "1" : "0",
     borehole: toggles.toggleBorehole ? "1" : "0",
     hosting: toggles.toggleNationalGrid ? "1" : "0",
+    wastewater: toggles.toggleWastewater ? "1" : "0",
     theme: document.body.classList.contains("dark-theme") ? "dark" : "light"
   };
 
@@ -309,7 +515,7 @@ function syncUrlState(view) {
   const params = new URLSearchParams();
   Object.entries(state).forEach(([key, value]) => {
     if (value && value !== "all" && value !== "statewide") params.set(key, value);
-    if ((key === "gsep" || key === "leaks" || key === "ej" || key === "borehole" || key === "hosting") && value === "0") {
+    if ((key === "gsep" || key === "leaks" || key === "ej" || key === "borehole" || key === "hosting" || key === "wastewater") && value === "0") {
       params.set(key, value);
     }
   });
@@ -344,8 +550,8 @@ function renderBookmarks(applyBookmark, removeBookmark) {
 
   bookmarkList.innerHTML = appState.bookmarks.map((bookmark, index) => `
     <div class="bookmark-item">
-      <strong>${safeText(bookmark.name)}</strong>
-      <span>${safeText(bookmark.summary)}</span>
+      <strong>${escapeHtml(bookmark.name)}</strong>
+      <span>${escapeHtml(bookmark.summary)}</span>
       <div class="inline-actions" style="margin-top: 8px;">
         <button class="action-btn" type="button" data-bookmark-apply="${index}">Open</button>
         <button class="action-btn" type="button" data-bookmark-delete="${index}">Delete</button>
@@ -376,10 +582,10 @@ function renderHealth(entries) {
     return `
       <div class="health-item">
         <div style="display:flex;justify-content:space-between;gap:8px;align-items:flex-start;">
-          <strong>${safeText(entry.title)}</strong>
-          <span class="status-pill ${pillClass}">${entry.status}</span>
+          <strong>${escapeHtml(entry.title)}</strong>
+          <span class="status-pill ${pillClass}">${escapeHtml(entry.status)}</span>
         </div>
-        <span>${safeText(entry.detail)}</span>
+        <span>${escapeHtml(entry.detail)}</span>
       </div>
     `;
   }).join("");
@@ -400,10 +606,172 @@ function renderHotspots(items) {
 
   hotspotList.innerHTML = items.map((item) => `
     <div class="hotspot-item">
-      <strong>${safeText(item.name)}</strong>
-      <span>${safeText(item.layerTitle)}<br />${safeText(item.metricLabel)}: ${formatNumber(item.metricValue)}</span>
+      <strong>${escapeHtml(item.name)}</strong>
+      <span>${escapeHtml(item.layerTitle)}<br />${escapeHtml(item.metricLabel)}: ${formatNumber(item.metricValue)}</span>
     </div>
   `).join("");
+}
+
+function buildWastewaterCsvState(gradedRows, groundwaterRows) {
+  const records = [];
+  gradedRows.forEach((row) => {
+    const town = normalizeTown(row["City or Town"]);
+    const type = getGradeType(row["Facility Grade"]);
+    records.push({
+      dataset: "graded",
+      type,
+      town,
+      name: row["Facility Name"] || "",
+      flow: 0
+    });
+  });
+
+  groundwaterRows.forEach((row) => {
+    const town = normalizeTown(row.TOWN);
+    const flow = Number(String(row.FLOW || "").replace(/,/g, "")) || 0;
+    records.push({
+      dataset: "groundwater",
+      type: "groundwater",
+      town,
+      name: row.PROJNAME || "",
+      flow
+    });
+  });
+
+  const aggregate = aggregateWastewaterRecords(records);
+  return {
+    loaded: true,
+    gradedRows,
+    groundwaterRows,
+    records,
+    townStats: aggregate.townStats,
+    summary: aggregate.summary
+  };
+}
+
+function aggregateWastewaterRecords(records) {
+  const townStats = {};
+  const typeCounts = { M: 0, I: 0, C: 0, O: 0 };
+  let gradedTotal = 0;
+  let groundwaterTotal = 0;
+  let groundwaterFlow = 0;
+
+  function ensureTown(town) {
+    if (!town) return null;
+    if (!townStats[town]) {
+      townStats[town] = {
+        town,
+        graded: 0,
+        groundwater: 0,
+        total: 0,
+        flow: 0,
+        types: { M: 0, I: 0, C: 0, O: 0 },
+        examples: []
+      };
+    }
+    return townStats[town];
+  }
+
+  records.forEach((record) => {
+    if (record.dataset === "graded") {
+      gradedTotal += 1;
+      typeCounts[record.type] = (typeCounts[record.type] || 0) + 1;
+    }
+    if (record.dataset === "groundwater") {
+      groundwaterTotal += 1;
+      groundwaterFlow += record.flow;
+    }
+    const entry = ensureTown(record.town);
+    if (!entry) return;
+    if (record.dataset === "graded") {
+      entry.graded += 1;
+      entry.types[record.type] = (entry.types[record.type] || 0) + 1;
+    }
+    if (record.dataset === "groundwater") {
+      entry.groundwater += 1;
+      entry.flow += record.flow;
+    }
+    entry.total += 1;
+    if (entry.examples.length < 4 && record.name) entry.examples.push(record.name);
+  });
+
+  return {
+    townStats,
+    summary: {
+      gradedTotal,
+      groundwaterTotal,
+      townTotal: Object.keys(townStats).length,
+      groundwaterFlow,
+      typeCounts
+    }
+  };
+}
+
+function getFilteredWastewaterCsvState(statusValue = statusSelect.value, utilityValue = utilitySelect.value) {
+  if (!appState.wastewaterCsv.records.length) return { townStats: {}, summary: null };
+  if (utilityValue !== "all" && utilityValue !== "MassDEP") {
+    return {
+      townStats: {},
+      summary: {
+        gradedTotal: 0,
+        groundwaterTotal: 0,
+        townTotal: 0,
+        groundwaterFlow: 0,
+        typeCounts: { M: 0, I: 0, C: 0, O: 0 }
+      }
+    };
+  }
+  if (statusValue !== "all" && !isWastewaterStatus(statusValue)) {
+    return {
+      townStats: {},
+      summary: {
+        gradedTotal: 0,
+        groundwaterTotal: 0,
+        townTotal: 0,
+        groundwaterFlow: 0,
+        typeCounts: { M: 0, I: 0, C: 0, O: 0 }
+      }
+    };
+  }
+  return aggregateWastewaterRecords(
+    appState.wastewaterCsv.records.filter((record) => wastewaterRecordMatchesStatus(record, statusValue))
+  );
+}
+
+function renderWastewaterCsvSummary(statusValue = statusSelect.value, utilityValue = utilitySelect.value) {
+  if (!wastewaterCsvSummary) return;
+  const filtered = getFilteredWastewaterCsvState(statusValue, utilityValue);
+  const summary = filtered.summary;
+  if (!summary) {
+    wastewaterCsvSummary.innerHTML = `
+      <div class="metric-item">
+        <strong>Wastewater datasets loading</strong>
+        <span>Graded facilities and groundwater discharge records will appear after the local data files load.</span>
+      </div>
+    `;
+    return;
+  }
+
+  const filterLabel = statusValue === "all" ? "All wastewater records" : getWastewaterStatusLabel(statusValue);
+  wastewaterCsvSummary.innerHTML = `
+    <div class="metric-item">
+      <strong>${formatNumber(summary.gradedTotal)} graded facilities</strong>
+      <span>${escapeHtml(filterLabel)} across ${formatNumber(summary.townTotal)} towns.</span>
+    </div>
+    <div class="metric-item">
+      <strong>${formatNumber(summary.groundwaterTotal)} groundwater discharge plants</strong>
+      <span>${formatNumber(summary.groundwaterFlow)} total listed design flow across groundwater records.</span>
+    </div>
+    <div class="metric-item">
+      <strong>Facility Type Mix</strong>
+      <span>
+        Municipal ${formatNumber(summary.typeCounts.M)} |
+        Industrial ${formatNumber(summary.typeCounts.I)} |
+        Combined ${formatNumber(summary.typeCounts.C)} |
+        Other ${formatNumber(summary.typeCounts.O)}
+      </span>
+    </div>
+  `;
 }
 
 function applyStateToControls(state) {
@@ -413,6 +781,7 @@ function applyStateToControls(state) {
   if (state.toggleEJ !== null && state.toggleEJ !== undefined) document.getElementById("toggleEJ").checked = state.toggleEJ !== "0";
   if (state.toggleBorehole !== null && state.toggleBorehole !== undefined) document.getElementById("toggleBorehole").checked = state.toggleBorehole !== "0";
   if (state.toggleNationalGrid !== null && state.toggleNationalGrid !== undefined) document.getElementById("toggleNationalGrid").checked = state.toggleNationalGrid !== "0";
+  if (state.toggleWastewater !== null && state.toggleWastewater !== undefined) document.getElementById("toggleWastewater").checked = state.toggleWastewater !== "0";
   if (state.region) regionSelect.value = state.region;
   if (state.theme === "dark") document.body.classList.add("dark-theme");
   if (state.theme === "light") document.body.classList.remove("dark-theme");
@@ -434,7 +803,13 @@ function switchTab(tabId, clickedBtn) {
   document.getElementById(`tab-${tabId}`).classList.add("active");
   if (clickedBtn) clickedBtn.classList.add("active");
   if (tabId === "maps" && mapReady && mapViewRef) {
-    setTimeout(() => mapViewRef.resize(), 60);
+    setTimeout(() => refreshMapViewSize(mapViewRef), 60);
+  }
+}
+
+function refreshMapViewSize(view) {
+  if (view && typeof view.resize === "function") {
+    view.resize();
   }
 }
 
@@ -450,6 +825,7 @@ document.getElementById("menuBtn").addEventListener("click", () => toggleMenu())
 document.getElementById("overlay").addEventListener("click", () => toggleMenu(false));
 sourcePicker.addEventListener("change", (event) => {
   sourceFrame.src = event.target.value;
+  sourceFrame.dataset.sourceUrl = event.target.value;
 });
 document.querySelectorAll("[data-tab]").forEach((button) => {
   button.addEventListener("click", () => switchTab(button.dataset.tab, button));
@@ -460,7 +836,7 @@ const scheduleMapResize = (() => {
   return () => {
     if (!mapReady || !mapViewRef) return;
     clearTimeout(timer);
-    timer = setTimeout(() => mapViewRef.resize(), 120);
+    timer = setTimeout(() => refreshMapViewSize(mapViewRef), 120);
   };
 })();
 
@@ -470,7 +846,9 @@ window.addEventListener("orientationchange", scheduleMapResize);
 function initCharts() {
   const palette = getChartPalette();
   const createChart = (id, type, label, bgColor) => {
-    return new Chart(document.getElementById(id), {
+    const canvas = document.getElementById(id);
+    if (!canvas) return null;
+    return new Chart(canvas, {
       type,
       data: {
         labels: [],
@@ -508,12 +886,18 @@ function initCharts() {
     });
   };
 
-  charts.utility = createChart("chartUtilityDistribution", "bar", "Visible Features", palette.accent);
+  charts.utility = createChart("chartUtilityDistribution", "bar", "Total Features", palette.accent);
   charts.status = createChart("chartGsepStatus", "pie", "Project Statuses", palette.series.slice(0, 5));
   charts.hosting = createChart("chartHostingTiers", "doughnut", "Hosting Access", ["#ef4444", "#f59e0b", "#10b981"]);
   charts.timeline = createChart("chartBatchTimeline", "bar", "Projects by Year", "#38bdf8");
   charts.safety = createChart("chartSafetyStatus", "doughnut", "Repair Status", ["#10b981", "#f59e0b"]);
   charts.compare = createChart("chartComparison", "bar", "Comparison", [palette.accent, palette.accentSecondary]);
+  charts.layerGroups = createChart("chartLayerGroups", "bar", "Feature Count", palette.series);
+  charts.gsepUtility = createChart("chartGsepUtility", "bar", "GSEP Features", "#10b981");
+  charts.leakUtility = createChart("chartLeakUtility", "bar", "Leak Features", "#f59e0b");
+  charts.wastewaterTypes = createChart("chartWastewaterTypes", "doughnut", "Facility Types", ["#0f766e", "#f97316", "#6366f1", "#94a3b8"]);
+  charts.wastewaterTowns = createChart("chartWastewaterTowns", "bar", "Wastewater Records", "#0891b2");
+  charts.contextLayers = createChart("chartContextLayers", "bar", "Context Features", "#a78bfa");
 }
 
 function updateYearList(allLayerMeta, toggles) {
@@ -547,6 +931,15 @@ function updateStatusList(toggles) {
     options.push({ val: "npa", label: "NPA" });
     options.push({ val: "cost", label: "Cost estimates" });
   }
+  if (toggles.toggleWastewater) {
+    options.push({ val: "ww-graded", label: "Wastewater graded facilities" });
+    options.push({ val: "ww-groundwater", label: "Wastewater groundwater discharge" });
+    options.push({ val: "ww-major-facilities", label: "Wastewater major facilities" });
+    options.push({ val: "ww-municipal", label: "Wastewater municipal" });
+    options.push({ val: "ww-industrial", label: "Wastewater industrial" });
+    options.push({ val: "ww-combined", label: "Wastewater combined" });
+    options.push({ val: "ww-other", label: "Wastewater other / no grade" });
+  }
 
   statusSelect.innerHTML = "";
   options.forEach((item) => {
@@ -563,7 +956,7 @@ function updateUtilityLists(allLayerMeta, extraLayers, toggles) {
   const currentCompareA = compareEnabled ? (compareUtilityA.value || appState.pendingState.compareA || "National Grid") : "National Grid";
   const currentCompareB = compareEnabled ? (compareUtilityB.value || appState.pendingState.compareB || "Eversource") : "Eversource";
   const utilities = new Set();
-  const categoryMap = { gsep: "toggleGsep", leaks: "toggleLeaks", ej: "toggleEJ", borehole: "toggleBorehole", nationalgrid: "toggleNationalGrid" };
+  const categoryMap = { gsep: "toggleGsep", leaks: "toggleLeaks", ej: "toggleEJ", borehole: "toggleBorehole", nationalgrid: "toggleNationalGrid", wastewater: "toggleWastewater" };
 
   allLayerMeta.concat(extraLayers).forEach((entry) => {
     const toggleKey = categoryMap[entry.group] || entry.categoryToggle;
@@ -578,7 +971,7 @@ function updateUtilityLists(allLayerMeta, extraLayers, toggles) {
   values.forEach((utility) => {
     const option = document.createElement("option");
     option.value = utility;
-    option.textContent = utility;
+    option.textContent = getUtilityLabel(utility);
     utilitySelect.appendChild(option);
   });
   setSelectValue(utilitySelect, currentUtility, "all");
@@ -589,7 +982,7 @@ function updateUtilityLists(allLayerMeta, extraLayers, toggles) {
       values.forEach((utility) => {
         const option = document.createElement("option");
         option.value = utility;
-        option.textContent = utility;
+        option.textContent = getUtilityLabel(utility);
         select.appendChild(option);
       });
     });
@@ -604,9 +997,10 @@ function updateSidebarSources(allLayerMeta, extraLayers) {
   const uniqueSources = new Map();
 
   allLayerMeta.concat(extraLayers).forEach((entry) => {
-    if (entry.layer && entry.layer.visible && entry.url) {
-      if (!uniqueSources.has(entry.url)) {
-        uniqueSources.set(entry.url, entry.sidebarTitle || entry.title);
+    const sourceUrl = entry.sourceUrl || entry.url;
+    if (entry.layer && entry.layer.visible && sourceUrl) {
+      if (!uniqueSources.has(sourceUrl)) {
+        uniqueSources.set(sourceUrl, entry.sidebarTitle || entry.title);
       }
     }
   });
@@ -619,6 +1013,7 @@ function updateSidebarSources(allLayerMeta, extraLayers) {
       </div>
     `;
     sourceFrame.removeAttribute("src");
+    delete sourceFrame.dataset.sourceUrl;
     return;
   }
 
@@ -627,7 +1022,7 @@ function updateSidebarSources(allLayerMeta, extraLayers) {
     if (!firstUrl) firstUrl = url;
     const card = document.createElement("div");
     card.className = "source";
-    card.innerHTML = `<strong>${title}</strong><a href="${url}" target="_blank" rel="noopener noreferrer">Open source</a>`;
+    card.innerHTML = `<strong>${escapeHtml(title)}</strong><a href="${escapeAttribute(url)}" target="_blank" rel="noopener noreferrer">Open source</a>`;
     sourceList.appendChild(card);
 
     const option = document.createElement("option");
@@ -636,8 +1031,9 @@ function updateSidebarSources(allLayerMeta, extraLayers) {
     sourcePicker.appendChild(option);
   });
 
-  if (!sourceFrame.src || !uniqueSources.has(sourceFrame.src)) {
+  if (!sourceFrame.dataset.sourceUrl || !uniqueSources.has(sourceFrame.dataset.sourceUrl)) {
     sourceFrame.src = firstUrl;
+    sourceFrame.dataset.sourceUrl = firstUrl;
   }
 }
 
@@ -697,8 +1093,9 @@ async function collectHealth(entries, hostingLayer) {
     });
   }
 
-  appState.health = visibleHealth;
-  renderHealth(visibleHealth);
+  const existingCsvHealth = appState.health.filter((entry) => /^Wastewater datasets/i.test(entry.title));
+  appState.health = visibleHealth.concat(existingCsvHealth);
+  renderHealth(appState.health);
 }
 
 function buildHotspotMetric(feature, fields) {
@@ -760,6 +1157,9 @@ async function buildHotspots(view, layerEntries) {
 async function queryFeatureCounts(view, visibleEntries) {
   const results = await Promise.all(visibleEntries.map(async (entry) => {
     try {
+      if (!entry.layer || Number.isFinite(entry.featureCount)) {
+        return { ...entry, featureCount: Number(entry.featureCount) || 0 };
+      }
       const query = entry.layer.createQuery();
       query.where = "1=1";
       if (view.extent) {
@@ -775,12 +1175,79 @@ async function queryFeatureCounts(view, visibleEntries) {
   return results;
 }
 
+function shouldIncludeAnalyticsEntry(entry, options) {
+  if (!entry.includeInAnalytics || !entry.layer) return false;
+  if (!options.includeAllToggles && !entry.layer.visible) return false;
+  if (options.activeUtility !== "all" && entry.utility !== options.activeUtility) return false;
+  if (isWastewaterStatus(options.activeStatus) && options.activeStatus !== "ww-major-facilities") return false;
+  if (options.activeStatus === "ww-major-facilities" && entry.analyticsGroup !== "wastewater") return false;
+  if (options.activeStatus !== "all" && !isWastewaterStatus(options.activeStatus) && entry.analyticsGroup !== "wastewater") return false;
+  return true;
+}
+
+function getAnalyticsEntries(allLayerMeta, extraLayers, options = {}) {
+  const activeUtility = options.activeUtility || utilitySelect.value;
+  const activeStatus = options.activeStatus || statusSelect.value;
+  const includeAllToggles = Boolean(options.includeAllToggles);
+  const extraAnalyticsEntries = extraLayers
+    .filter((entry) => shouldIncludeAnalyticsEntry(entry, { activeUtility, activeStatus, includeAllToggles }))
+    .map((entry) => ({
+      ...entry,
+      group: entry.group || entry.analyticsGroup || "context",
+      year: entry.year || "current",
+      statusKind: entry.statusKind || "context",
+      isSummary: false
+  }));
+  const csvEntries = [];
+  const wastewaterSummary = getFilteredWastewaterCsvState(activeStatus, activeUtility).summary;
+  if ((includeAllToggles || getCurrentToggles().toggleWastewater) && wastewaterSummary) {
+    csvEntries.push({
+      group: "wastewater",
+      title: "Graded wastewater facilities",
+      utility: "MassDEP",
+      year: "current",
+      statusKind: activeStatus === "all" ? "graded" : getWastewaterStatusLabel(activeStatus),
+      featureCount: wastewaterSummary.gradedTotal
+    });
+    csvEntries.push({
+      group: "wastewater",
+      title: "Groundwater discharge plants",
+      utility: "MassDEP",
+      year: "current",
+      statusKind: activeStatus === "all" ? "groundwater" : getWastewaterStatusLabel(activeStatus),
+      featureCount: wastewaterSummary.groundwaterTotal
+    });
+  }
+  const layerEntries = allLayerMeta.filter((entry) => {
+    const utilityMatch = activeUtility === "all" || entry.utility === activeUtility;
+    const statusMatch = activeStatus === "all" || hasStatus(entry, activeStatus);
+    return utilityMatch && statusMatch && (includeAllToggles || entry.layer.visible);
+  });
+  return layerEntries.concat(extraAnalyticsEntries, csvEntries);
+}
+
+function getVisibleAnalyticsEntries(allLayerMeta, extraLayers) {
+  return getAnalyticsEntries(allLayerMeta, extraLayers, { includeAllToggles: false });
+}
+
+function getFullAnalyticsEntries(allLayerMeta, extraLayers) {
+  return getAnalyticsEntries(allLayerMeta, extraLayers, {
+    activeUtility: "all",
+    activeStatus: "all",
+    includeAllToggles: true
+  });
+}
+
 function updateChartsFromAnalytics(analytics, compareAValue, compareBValue, hostingLayer, portals) {
   const palette = getChartPalette();
   const utilityCounts = {};
   const statusCounts = {};
   const timelineCounts = {};
   const safetyCounts = { Repaired: 0, Open: 0 };
+  const groupCounts = {};
+  const gsepUtilityCounts = {};
+  const leakUtilityCounts = {};
+  const contextCounts = {};
   const compareMetrics = {
     [compareAValue]: { layers: 0, features: 0, leaks: 0, gsep: 0 },
     [compareBValue]: { layers: 0, features: 0, leaks: 0, gsep: 0 }
@@ -797,13 +1264,22 @@ function updateChartsFromAnalytics(analytics, compareAValue, compareBValue, host
     utilityCounts[entry.utility] = (utilityCounts[entry.utility] || 0) + entry.featureCount;
     statusCounts[entry.statusKind] = (statusCounts[entry.statusKind] || 0) + entry.featureCount;
     timelineCounts[entry.year] = (timelineCounts[entry.year] || 0) + entry.featureCount;
+    const groupLabel = formatLabel(entry.group || "context");
+    groupCounts[groupLabel] = (groupCounts[groupLabel] || 0) + entry.featureCount;
 
     if (entry.group === "leaks") {
       leakLayers += 1;
+      leakUtilityCounts[entry.utility] = (leakUtilityCounts[entry.utility] || 0) + entry.featureCount;
       if (entry.statusKind === "repaired") safetyCounts.Repaired += entry.featureCount;
       else safetyCounts.Open += entry.featureCount;
     }
-    if (entry.group === "gsep") gsepLayers += 1;
+    if (entry.group === "gsep") {
+      gsepLayers += 1;
+      gsepUtilityCounts[entry.utility] = (gsepUtilityCounts[entry.utility] || 0) + entry.featureCount;
+    }
+    if (entry.group !== "gsep" && entry.group !== "leaks" && entry.group !== "wastewater") {
+      contextCounts[entry.title || groupLabel] = (contextCounts[entry.title || groupLabel] || 0) + entry.featureCount;
+    }
 
     if (compareMetrics[entry.utility]) {
       compareMetrics[entry.utility].layers += 1;
@@ -844,30 +1320,85 @@ function updateChartsFromAnalytics(analytics, compareAValue, compareBValue, host
   ];
   charts.hosting.update();
 
-  charts.compare.data.labels = ["Visible Layers", "Visible Features", "Leak Features", "GSEP Features"];
-  charts.compare.data.datasets = [
-    {
-      label: compareAValue,
-      data: [
-        compareMetrics[compareAValue] ? compareMetrics[compareAValue].layers : 0,
-        compareMetrics[compareAValue] ? compareMetrics[compareAValue].features : 0,
-        compareMetrics[compareAValue] ? compareMetrics[compareAValue].leaks : 0,
-        compareMetrics[compareAValue] ? compareMetrics[compareAValue].gsep : 0
+  if (charts.compare) {
+    charts.compare.data.labels = ["Visible Layers", "Visible Features", "Leak Features", "GSEP Features"];
+    charts.compare.data.datasets = [
+      {
+        label: compareAValue,
+        data: [
+          compareMetrics[compareAValue] ? compareMetrics[compareAValue].layers : 0,
+          compareMetrics[compareAValue] ? compareMetrics[compareAValue].features : 0,
+          compareMetrics[compareAValue] ? compareMetrics[compareAValue].leaks : 0,
+          compareMetrics[compareAValue] ? compareMetrics[compareAValue].gsep : 0
+        ],
+        backgroundColor: palette.accent
+      },
+      {
+        label: compareBValue,
+        data: [
+          compareMetrics[compareBValue] ? compareMetrics[compareBValue].layers : 0,
+          compareMetrics[compareBValue] ? compareMetrics[compareBValue].features : 0,
+          compareMetrics[compareBValue] ? compareMetrics[compareBValue].leaks : 0,
+          compareMetrics[compareBValue] ? compareMetrics[compareBValue].gsep : 0
+        ],
+        backgroundColor: palette.accentSecondary
+      }
+    ];
+    charts.compare.update();
+  }
+
+  const setChartData = (chart, labels, data, colors) => {
+    if (!chart) return;
+    chart.data.labels = labels;
+    chart.data.datasets[0].data = data;
+    if (colors) chart.data.datasets[0].backgroundColor = colors;
+    chart.update();
+  };
+  const sortedEntries = (items, limit) => Object.entries(items)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, limit || Object.keys(items).length);
+
+  const layerGroupEntries = sortedEntries(groupCounts);
+  setChartData(
+    charts.layerGroups,
+    layerGroupEntries.map(([label]) => label),
+    layerGroupEntries.map(([, value]) => value),
+    palette.series
+  );
+
+  const gsepUtilityEntries = sortedEntries(gsepUtilityCounts, 12);
+  setChartData(charts.gsepUtility, gsepUtilityEntries.map(([label]) => label), gsepUtilityEntries.map(([, value]) => value), palette.accent);
+
+  const leakUtilityEntries = sortedEntries(leakUtilityCounts, 12);
+  setChartData(charts.leakUtility, leakUtilityEntries.map(([label]) => label), leakUtilityEntries.map(([, value]) => value), "#f59e0b");
+
+  const wastewaterSummary = appState.wastewaterCsv.summary;
+  if (wastewaterSummary) {
+    setChartData(
+      charts.wastewaterTypes,
+      ["Municipal", "Industrial", "Combined", "Other / no grade"],
+      [
+        wastewaterSummary.typeCounts.M,
+        wastewaterSummary.typeCounts.I,
+        wastewaterSummary.typeCounts.C,
+        wastewaterSummary.typeCounts.O
       ],
-      backgroundColor: palette.accent
-    },
-    {
-      label: compareBValue,
-      data: [
-        compareMetrics[compareBValue] ? compareMetrics[compareBValue].layers : 0,
-        compareMetrics[compareBValue] ? compareMetrics[compareBValue].features : 0,
-        compareMetrics[compareBValue] ? compareMetrics[compareBValue].leaks : 0,
-        compareMetrics[compareBValue] ? compareMetrics[compareBValue].gsep : 0
-      ],
-      backgroundColor: palette.accentSecondary
-    }
-  ];
-  charts.compare.update();
+      ["#0f766e", "#f97316", "#6366f1", "#94a3b8"]
+    );
+    const wastewaterTownEntries = sortedEntries(
+      Object.fromEntries(Object.entries(appState.wastewaterCsv.townStats).map(([town, stats]) => [formatLabel(town), stats.total])),
+      12
+    );
+    setChartData(
+      charts.wastewaterTowns,
+      wastewaterTownEntries.map(([label]) => label),
+      wastewaterTownEntries.map(([, value]) => value),
+      "#0891b2"
+    );
+  }
+
+  const contextEntries = sortedEntries(contextCounts, 10);
+  setChartData(charts.contextLayers, contextEntries.map(([label]) => label), contextEntries.map(([, value]) => value), "#a78bfa");
 }
 
 require([
@@ -875,12 +1406,14 @@ require([
   "esri/views/MapView",
   "esri/layers/FeatureLayer",
   "esri/layers/GroupLayer",
+  "esri/layers/GraphicsLayer",
   "esri/layers/MapImageLayer",
+  "esri/Graphic",
   "esri/widgets/Legend",
   "esri/widgets/Expand",
   "esri/widgets/Search",
   "esri/widgets/Home"
-], function (Map, MapView, FeatureLayer, GroupLayer, MapImageLayer, Legend, Expand, Search, Home) {
+], function (Map, MapView, FeatureLayer, GroupLayer, GraphicsLayer, MapImageLayer, Graphic, Legend, Expand, Search, Home) {
   applyStateToControls(appState.pendingState);
   const themeBtn = document.getElementById("themeBtn");
   const map = new Map({
@@ -976,6 +1509,18 @@ require([
     url: "https://services1.arcgis.com/7iJyYTjCtKsZS1LR/arcgis/rest/services/Well_Location_Viewer_Data_4_26_23/FeatureServer/0",
     title: "MassDEP Well/Borehole Viewer Data"
   });
+  const wastewaterLayer = new FeatureLayer({
+    url: "https://services6.arcgis.com/euKKjtGUuDiy24vy/ArcGIS/rest/services/MassDEP_Major_Facilities_Waste_Treatment/FeatureServer/4",
+    title: "MassDEP Waste Treatment Facilities"
+  });
+  const townBoundaryLayer = new FeatureLayer({
+    url: "https://services8.arcgis.com/o4UVke7qqC8oNJ7j/ArcGIS/rest/services/Massachusetts_Towns_General_Coast/FeatureServer/0",
+    title: "Massachusetts Municipal Boundaries"
+  });
+  const wastewaterTownLayer = new GraphicsLayer({
+    title: "Wastewater Facilities by Town",
+    visible: true
+  });
   const nationalGridLayer = new MapImageLayer({
     url: "https://systemdataportal.nationalgrid.com/arcgis/rest/services/MASDP/MA_HostingCapacity_with_DGPending/MapServer",
     title: "National Grid Hosting Capacity"
@@ -996,14 +1541,29 @@ require([
     categoryToggle: "toggleNationalGrid"
   };
   const extraLayers = [
-    { layer: ejLayer, title: ejLayer.title, url: ejLayer.url, utility: "Environmental", categoryToggle: "toggleEJ" },
-    { layer: boreholeLayer, title: boreholeLayer.title, url: boreholeLayer.url, utility: "MassDEP", categoryToggle: "toggleBorehole" },
+    { layer: ejLayer, title: ejLayer.title, url: ejLayer.url, utility: "Environmental", categoryToggle: "toggleEJ", includeInAnalytics: true, analyticsGroup: "ej", statusKind: "context", year: "2020" },
+    { layer: boreholeLayer, title: boreholeLayer.title, url: boreholeLayer.url, utility: "MassDEP", categoryToggle: "toggleBorehole", includeInAnalytics: true, analyticsGroup: "borehole", statusKind: "context", year: "2023" },
+    {
+      layer: wastewaterLayer,
+      title: wastewaterLayer.title,
+      url: wastewaterLayer.url,
+      sourceUrl: "https://www.mass.gov/info-details/wastewater-treatment-plant-operations#lists-of-treatment-plants-by-town-and-type",
+      utility: "MassDEP",
+      categoryToggle: "toggleWastewater",
+      includeInAnalytics: true,
+      analyticsGroup: "wastewater",
+      statusKind: "facility",
+      year: "current",
+      sidebarTitle: "Mass.gov wastewater treatment plant operations"
+    },
+    { layer: wastewaterTownLayer, title: "Graded wastewater facilities", url: WASTEWATER_CSV_SOURCES.graded, utility: "MassDEP", categoryToggle: "toggleWastewater" },
+    { layer: wastewaterTownLayer, title: "Groundwater discharge plants", url: WASTEWATER_CSV_SOURCES.groundwater, utility: "MassDEP", categoryToggle: "toggleWastewater" },
     { layer: nationalGridLayer, title: nationalGridLayer.title, url: nationalGridLayer.url, utility: "National Grid", categoryToggle: "toggleNationalGrid" },
     eversourcePortal,
     ngridPortal
   ];
 
-  map.addMany([nationalGridLayer, ejLayer, boreholeLayer, gasLeakGroup, gsepGroup]);
+  map.addMany([nationalGridLayer, ejLayer, boreholeLayer, wastewaterLayer, wastewaterTownLayer, gasLeakGroup, gsepGroup]);
   const view = new MapView({
     container: "mapCanvas",
     map,
@@ -1041,13 +1601,102 @@ require([
     mobileLegendQuery.addListener(syncLegendVisibility);
   }
 
+  function getWastewaterBubbleSymbol(total) {
+    const size = Math.max(10, Math.min(40, 8 + Math.sqrt(total) * 3.2));
+    return {
+      type: "simple-marker",
+      style: "circle",
+      size,
+      color: [14, 116, 144, 0.72],
+      outline: { color: [255, 255, 255, 0.92], width: 1.5 }
+    };
+  }
+
+  async function renderWastewaterTownGraphics(statusValue = statusSelect.value, utilityValue = utilitySelect.value) {
+    wastewaterTownLayer.removeAll();
+    const townStats = getFilteredWastewaterCsvState(statusValue, utilityValue).townStats || {};
+    const townNames = Object.keys(townStats);
+    if (!townNames.length) return;
+
+    try {
+      const query = townBoundaryLayer.createQuery();
+      query.where = "1=1";
+      query.outFields = ["TOWN"];
+      query.returnGeometry = true;
+      const response = await townBoundaryLayer.queryFeatures(query);
+      response.features.forEach((feature) => {
+        const town = normalizeTown(feature.attributes && feature.attributes.TOWN);
+        const stats = townStats[town];
+        if (!stats || !feature.geometry || !feature.geometry.extent) return;
+        const examples = stats.examples.map(escapeHtml).join("<br />");
+        wastewaterTownLayer.add(new Graphic({
+          geometry: feature.geometry.extent.center,
+          symbol: getWastewaterBubbleSymbol(stats.total),
+          attributes: stats,
+          popupTemplate: {
+            title: "{town}",
+            content: `
+              <strong>${formatNumber(stats.total)} wastewater records</strong><br />
+              Graded facilities: ${formatNumber(stats.graded)}<br />
+              Groundwater discharge plants: ${formatNumber(stats.groundwater)}<br />
+              Municipal: ${formatNumber(stats.types.M)} | Industrial: ${formatNumber(stats.types.I)} | Combined: ${formatNumber(stats.types.C)} | Other: ${formatNumber(stats.types.O)}<br />
+              Listed flow: ${formatNumber(stats.flow)}<br />
+              ${examples ? `<br /><strong>Examples</strong><br />${examples}` : ""}
+            `
+          }
+        }));
+      });
+    } catch (error) {
+      appState.health.push({
+        title: "Wastewater town map",
+        status: "Issue",
+        detail: "Municipal boundary lookup failed, so wastewater records could not be aggregated on the map."
+      });
+      renderHealth(appState.health);
+    }
+  }
+
+  async function loadWastewaterCsvData() {
+    renderWastewaterCsvSummary();
+    try {
+      const [gradedResponse, groundwaterResponse] = await Promise.all([
+        fetch(WASTEWATER_CSV_SOURCES.graded),
+        fetch(WASTEWATER_CSV_SOURCES.groundwater)
+      ]);
+      if (!gradedResponse.ok || !groundwaterResponse.ok) throw new Error("CSV response was not OK");
+      const [gradedText, groundwaterText] = await Promise.all([
+        gradedResponse.text(),
+        groundwaterResponse.text()
+      ]);
+      appState.wastewaterCsv = buildWastewaterCsvState(parseCsv(gradedText), parseCsv(groundwaterText));
+      updateStatusList(getCurrentToggles());
+      renderWastewaterCsvSummary();
+      await renderWastewaterTownGraphics();
+      appState.health = appState.health.filter((entry) => !/^Wastewater datasets/i.test(entry.title));
+      appState.health.push({
+        title: "Wastewater datasets",
+        status: "Ready",
+        detail: `${formatNumber(appState.wastewaterCsv.summary.gradedTotal)} graded facilities and ${formatNumber(appState.wastewaterCsv.summary.groundwaterTotal)} groundwater discharge plants loaded.`
+      });
+      renderHealth(appState.health);
+    } catch (error) {
+      appState.health.push({
+        title: "Wastewater datasets",
+        status: "Issue",
+        detail: "Local wastewater data files could not be loaded."
+      });
+      renderHealth(appState.health);
+    }
+  }
+
   async function refreshAnalytics() {
     const runId = ++analyticsRunId;
-    const visibleFeatureEntries = allLayerMeta.filter((entry) => entry.layer.visible);
+    const visibleFeatureEntries = getVisibleAnalyticsEntries(allLayerMeta, extraLayers);
+    const fullFeatureEntries = getFullAnalyticsEntries(allLayerMeta, extraLayers);
     document.getElementById("statVisibleFeatures").textContent = "...";
     updateExperienceSummary(0);
     await buildHotspots(view, visibleFeatureEntries);
-    const analytics = await queryFeatureCounts(view, visibleFeatureEntries);
+    const analytics = await queryFeatureCounts(view, fullFeatureEntries);
     if (runId !== analyticsRunId) return;
     updateChartsFromAnalytics(
       analytics,
@@ -1075,11 +1724,14 @@ require([
     const activeStatus = statusSelect.value;
     const activeRegion = regionSelect.value;
     updateExperienceSummary(Number(document.getElementById("statVisibleFeatures").textContent.replace(/,/g, "")) || 0);
+    renderWastewaterCsvSummary(activeStatus, activeUtility);
 
     gsepGroup.visible = toggles.toggleGsep;
     gasLeakGroup.visible = toggles.toggleLeaks;
     ejLayer.visible = toggles.toggleEJ;
     boreholeLayer.visible = toggles.toggleBorehole;
+    wastewaterLayer.visible = toggles.toggleWastewater;
+    wastewaterTownLayer.visible = toggles.toggleWastewater;
     nationalGridLayer.visible = toggles.toggleNationalGrid;
 
     allLayerMeta.forEach((entry) => {
@@ -1093,6 +1745,10 @@ require([
 
     eversourcePortal.layer.visible = toggles.toggleNationalGrid && (activeUtility === "all" || activeUtility === "Eversource");
     ngridPortal.layer.visible = toggles.toggleNationalGrid && (activeUtility === "all" || activeUtility === "National Grid");
+    const wastewaterUtilityMatch = activeUtility === "all" || activeUtility === "MassDEP";
+    wastewaterLayer.visible = toggles.toggleWastewater && wastewaterUtilityMatch && (activeStatus === "all" || activeStatus === "ww-major-facilities");
+    wastewaterTownLayer.visible = toggles.toggleWastewater && wastewaterUtilityMatch && activeStatus !== "ww-major-facilities" && (activeStatus === "all" || isWastewaterStatus(activeStatus));
+    await renderWastewaterTownGraphics(activeStatus, activeUtility);
 
     const yearWrapper = document.getElementById("yearWrapper");
     if (yearWrapper) {
@@ -1116,6 +1772,7 @@ require([
       toggleEJ: bookmark.state.ej,
       toggleBorehole: bookmark.state.borehole,
       toggleNationalGrid: bookmark.state.hosting,
+      toggleWastewater: bookmark.state.wastewater,
       region: bookmark.state.region,
       theme: bookmark.state.theme
     });
@@ -1162,32 +1819,33 @@ require([
 
   view.on("click", async (event) => {
     const response = await view.hitTest(event);
-    const hit = response.results.find((result) => result.graphic && result.graphic.layer && result.graphic.layer.type !== "graphics");
+    const hit = response.results.find((result) => result.graphic && result.graphic.layer);
     renderFeatureInspector(hit ? hit.graphic : null);
   });
 
   initCharts();
   loadBookmarks();
   renderBookmarks(applyBookmark, removeBookmark);
-  collectHealth(allLayerMeta.slice(0, 10), nationalGridLayer);
+  collectHealth(allLayerMeta.slice(0, 10).concat(extraLayers.filter((entry) => entry.includeInAnalytics)), nationalGridLayer);
 
-  view.when(() => {
+  view.when(async () => {
     mapReady = true;
     applyViewTarget(view, appState.pendingState, true);
     setTimeout(() => {
-      view.resize();
+      refreshMapViewSize(view);
       forceHideMapLoader();
     }, 1200);
+    await loadWastewaterCsvData();
     applyFilters({ skipGoTo: Boolean(appState.pendingState.center) });
   });
 
   setTimeout(() => {
-    if (mapReady) view.resize();
+    if (mapReady) refreshMapViewSize(view);
     forceHideMapLoader();
   }, 4000);
 
   [
-    "toggleGsep", "toggleLeaks", "toggleEJ", "toggleBorehole", "toggleNationalGrid",
+    "toggleGsep", "toggleLeaks", "toggleEJ", "toggleBorehole", "toggleNationalGrid", "toggleWastewater",
     "utilityFilter", "yearFilter", "statusFilter", "regionFilter",
     "compareUtilityA", "compareUtilityB"
   ].forEach((id) => {

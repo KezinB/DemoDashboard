@@ -14,6 +14,7 @@
         --ink: #0f172a;
         --muted: #64748b;
         --accent: #3b82f6;
+        --accent-secondary: #f97316;
         --line: #e2e8f0;
         --glass: rgba(255, 255, 255, 0.7);
         --card: #ffffff;
@@ -24,6 +25,7 @@
         --ink: #f1f5f9;
         --muted: #94a3b8;
         --accent: #60a5fa;
+        --accent-secondary: #fb923c;
         --line: #334155;
         --glass: rgba(15, 23, 42, 0.7);
         --card: #1e293b;
@@ -1236,6 +1238,7 @@
                   <label class="toggle-row"><input type="checkbox" id="toggleEJ" checked /> Show EJ layer</label>
                   <label class="toggle-row"><input type="checkbox" id="toggleBorehole" checked /> Show Borehole layer</label>
                   <label class="toggle-row"><input type="checkbox" id="toggleNationalGrid" checked /> Show National Grid hosting</label>
+                  <label class="toggle-row"><input type="checkbox" id="toggleWastewater" checked /> Show Waste Treatment Facilities</label>
                 </div>
                 <div id="utilityWrapper">
                   <label for="utilityFilter">Utility filter</label>
@@ -1341,6 +1344,16 @@
             </section>
 
             <section class="section">
+              <h2>Wastewater Facility Summary</h2>
+              <div id="wastewaterCsvSummary" class="metric-list">
+                <div class="metric-item">
+                  <strong>Wastewater datasets loading</strong>
+                  <span>Graded facilities and groundwater discharge records will appear after the local data files load.</span>
+                </div>
+              </div>
+            </section>
+
+            <section class="section">
               <details>
                 <summary style="cursor: pointer; font-weight: 600; list-style: none; display: flex; align-items: center; justify-content: space-between;">
                   Raw Data Sources
@@ -1407,7 +1420,7 @@
           <section class="plot-card analytics-header">
             <div class="analytics-header-copy">
               <h2>Analytics synced to the live map</h2>
-              <p>These charts reflect the same visible layer state, region, and filters you set in the map view, so they are presentation-ready by default.</p>
+              <p>These charts summarize the full dashboard dataset, independent of the current map visibility toggles.</p>
             </div>
             <div id="analyticsSummaryChips" class="badge-row">
               <span class="badge">Live sync</span>
@@ -1433,7 +1446,7 @@
             </div>
             <div class="stat-card">
               <div id="statVisibleFeatures" class="value">0</div>
-              <div class="label">Visible Features</div>
+              <div class="label">Total Features</div>
             </div>
             <div class="stat-card">
               <div id="statHotspots" class="value">0</div>
@@ -1442,7 +1455,13 @@
           </div>
           <div class="plots-content">
             <div class="plot-card">
-              <h3>Infrastructure Allocation (by Utility)</h3>
+              <h3>Dataset Volume by Map Family</h3>
+              <div class="plot-canvas-container">
+                <canvas id="chartLayerGroups"></canvas>
+              </div>
+            </div>
+            <div class="plot-card">
+              <h3>Total Infrastructure Allocation (by Utility)</h3>
               <div class="plot-canvas-container">
                 <canvas id="chartUtilityDistribution"></canvas>
               </div>
@@ -1451,6 +1470,18 @@
               <h3>GSEP Status Overview</h3>
               <div class="plot-canvas-container">
                 <canvas id="chartGsepStatus"></canvas>
+              </div>
+            </div>
+            <div class="plot-card">
+              <h3>GSEP Features by Utility</h3>
+              <div class="plot-canvas-container">
+                <canvas id="chartGsepUtility"></canvas>
+              </div>
+            </div>
+            <div class="plot-card">
+              <h3>Gas Leak Features by Utility</h3>
+              <div class="plot-canvas-container">
+                <canvas id="chartLeakUtility"></canvas>
               </div>
             </div>
             <div class="plot-card">
@@ -1466,17 +1497,37 @@
               </div>
             </div>
             <div class="plot-card">
+              <h3>Wastewater Facility Type Mix</h3>
+              <div class="plot-canvas-container">
+                <canvas id="chartWastewaterTypes"></canvas>
+              </div>
+            </div>
+            <div class="plot-card">
+              <h3>Top Wastewater Towns</h3>
+              <div class="plot-canvas-container">
+                <canvas id="chartWastewaterTowns"></canvas>
+              </div>
+            </div>
+            <div class="plot-card">
+              <h3>Environmental & Supporting Layers</h3>
+              <div class="plot-canvas-container">
+                <canvas id="chartContextLayers"></canvas>
+              </div>
+            </div>
+            <div class="plot-card">
               <h3>Safety Status Overview</h3>
               <div class="plot-canvas-container">
                 <canvas id="chartSafetyStatus"></canvas>
               </div>
             </div>
+            <!--
             <div class="plot-card wide-card">
               <h3>Comparison Mode</h3>
               <div class="plot-canvas-container">
                 <canvas id="chartComparison"></canvas>
               </div>
             </div>
+            -->
           </div>
         </div>
       </div>
@@ -1486,6 +1537,6 @@
       </footer>
     </div>
 
-        <script src="./app.js"></script>
+        <script src="./app.js?v=20260417-hide-comparison"></script>
   </body>
 </html>

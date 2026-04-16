@@ -1,0 +1,548 @@
+﻿per,PERMITEXP,EXP,REGION,TOWN,PROJNAME,FLOW,Applicant,Contact,Address,CAddress,
+1,06/21/2017,26-Sep-23,SE,YARMOUTH,BUCK ISLAND CONDO.,30000,Buck Island Village Condominium Trust,"Alan Aarons, BIV Trustee",481 BUCK ISLAND ROAD,"481 Buck Island Road  West Yarmouth, MA  02673",
+3,12/15/2017,21-Mar-24,NE,LINCOLN,LINCOLN HOMES,26000,"New Lincoln Woods, LLC",Monica Luchini,50 WELLS ROAD,"50 Wells Road  Lincoln, MA  01773",
+4,02/10/2020,18-May-26,NE,IPSWICH,IPSWICH COUNTRY CLUB,75000,Ipswich Club Homes Homeowner's Assoc.,Steve Mangano,75 NEWBURY TURNPIKE,"c/o Thayer & Associates, Inc.
+PO Box 400196, 1812 Mass Avenue  Cambridge, MA  02140",
+18,10/06/2017,11-Jan-24,CE,ACTON,"NAGOG TREATMENT FACILITY, LLC",200000,Nagog Woods Community Corporation,Nancy Mandino,DURKEE LANE,"Village of Nagog Woods
+100 Nonset Path  Acton, MA  01718",
+19,08/05/2020,05-Aug-25,NE,HAMILTON,GORDON-CONWELL,58000,Gordon Conwell Theological Seminary,Tim Ingraham,130 ESSEX STREET,"130 Essex Street  Hamilton, MA  01982",
+20,08/25/2020,25-Aug-25,SE,SWANSEA,SWANSEA MALL,95000,"Carlyle Swansea Partners, LLC",Michael J. Mello,788 WOOD STREET,"262 Swansea Mall Drive
+SUITE 775  Swansea, MA  02777",
+21,11/05/2018,09-Feb-25,SE,BARNSTABLE,BARNSTABLE WWTP,4200000,Town of Barnstable WPC Dept.,Peter Doyle,617 BEARSES WAY,"617 Bearses Way  HYANNIS, MA  02601",
+23,11/09/2021,09-Nov-26,NE,SUDBURY,MEADOW WALK,90000,BPR Sudbury Development LLC,Steve Senna,203 BAY ROAD,"National Development
+2310 Washington Street  Newton Lower Falls, MA  02462",
+24,11/30/2018,06-Mar-25,SE,EDGARTOWN,EDGARTOWN WWTF,750000,Edgartown Wastewater Commission,Joseph Alosso,WEST TISBURY ROAD,"PO Box 1068
+West Tisbury Road  Edgartown, MA  02539",
+34,11/14/2017,19-Feb-24,NE,WILMINGTON,"HRP FORDHAM, LLC",30000,"HRP Fordham, LLC",Eric Darci,50 FORDHAM ROAD,"c/o Hilco Redevelopment Partners
+99 Summer Street, suite 1110  Boston, MA  02110",
+41,05/21/2018,25-Aug-24,SE,SANDWICH,OTIS AFB,360000,Department of the Air Force,Thurman R Deane,971 SOUTH OUTER ROAD,"102nd Intelligence Wing
+156 Reily Street, Box 46  Otis Air Nat'l Guard, MA  02542",
+44,03/15/2019,20-Jun-25,SE,CHATHAM,CHATHAM WWTF,2300000,"Town of Chatham, WPC Board",Robert A Duncanson,59 SAM RYDER ROAD,"549 Main Street  Chatham, MA  02633",
+45,08/30/2017,05-Dec-23,NE,NORTH READING,GREENBRIAR ESTATES CONDOMINIUMS,40000,Greenbriar Estates Condominiums,Lidia Real-Costa,4 GREENBRIAR DRIVE,"c/o The Dartmouth Group
+131 Hartwell Avenue. Suite 115  Lexington, MA  02421",
+49,06/14/2016,19-Sep-22,SE,FALMOUTH,SEACREST CONDO ASSOC,85000,"Scout Sea Crest Management, LLC",Clark Guinn,350 QUAKER ROAD,"350 Quaker Road  North Falmout, MA  02556",
+52,09/26/2023,26-Sep-28,WE,STOCKBRIDGE,KRIPALU CENTER,58000,Kripalu Center,Wayne Higgins,WEST STREET/RTE 183,"P.O. Box 309
+57 Interlaken Road  Stockbridge, MA  01262",
+79,11/28/2023,28-Nov-28,CE,LITTLETON,550 KING STREET,40000,"550 King Street, LLC",Salvatore Lupoli,550 KING STREET,"290 Merrimack Street
+2nd Floor  Lawrence, MA  01843",
+84,12/23/1996,23-Dec-01,SE,BREWSTER,CAMP WONO,2300,Mrs. Berry Richardson,Berry Richardson,MAIN STREET,"P.O. Box 1880  Brewster, MA  02631",
+87,09/17/2021,17-Sep-26,NE,WESTFORD,WESTFORD REGENCY HOTEL,40600,"Westford Regency Hotel, Empire Hospitality",Mark Waxler,219 LITTLETON ROAD,"219 Littleton Road  Westford, MA  01886",
+93,11/05/2021,05-Nov-26,NE,WESTFORD,HILDRETH HILLS CONDO.,44700,Hildreth Hills Condominium Trust,Mike Fugate,OFF HILDRETH STREET,"c/o The Dartmouth Group
+4 Preston Court  Bedford, MA  01730",
+95,11/13/2017,18-Feb-24,CE,ACTON,FARMBROOK CONDO. TRUST,105000,Farmbrook Trust,Alice Clark,48 DAVIS STREET,"21 Davis Road  Acton, MA  01720",
+96,03/09/2020,14-Jun-26,NE,ANDOVER,COLONIAL DRIVE CONDO.,33110,Colonial Drive Condominium Trust,Linda Marquis,MAIN STREET,"Main Street
+P.O. Box 808  Andover, MA  01810",
+109,09/29/1992,29-Sep-97,SE,ORLEANS,ORLEANS BOWLING CENTER,12000,Orleans Bowling Center,David Currier,191 CRANBERRY HIGHWAY,"191 Route 6A
+P.O. Box 422  Orleans, MA  02653",
+119,12/01/2010,01-Dec-19,SE,EASTON,FRIENDS CROSSING CONDO.,31000,Friends Crossings Trust,"Maureen Prokopy, Trustee",1 FRIENDS ROAD,"1 Friends Road  North Easton, MA  02356",
+142,08/03/2020,03-Aug-25,NE,NORTH READING,PARK COLONY CONDOMINIUM,26000,Park Colony Condominium Trust,Steve Mangano,36-46 MAIN STREET,"c/o Thayer & Associates
+1812 Massachusetts Avenue  Cambridge, MA  02140",
+162,05/06/2021,06-May-26,SE,YARMOUTH,THE COVE RESORT HOTEL,39900,The Cove at Yarmouth,Michael Edwards,183 MAIN STREET/RTE. 28,"183 Main Street  Yarmouth, MA  02673",
+164,08/15/1994,15-Aug-99,SE,BOURNE,BOURNE LAUNDROMAT,9600,Del Realty Limited,Richard DeLuca,105 TROWBRIDGE,"885 Washington Street  Weymouth, MA  02189",
+168,03/30/2015,30-Mar-20,SE,FALMOUTH,FALMOUTH WWTF,800000,Town of Falmouth,Raymond Jack,154 BLACKSMITH SHOP ROAD,"59 Town Hall Square  Falmouth, MA  02540",
+171,05/15/2017,20-Aug-23,SE,WEST TISBURY,MARTHA'S VINEYARD AIRPORT,37000,Martha's Vineyard Airport Commission,Sean Flynn,71 AIRPORT ROAD,"71 Airport Road
+P.O. Box 190  Edgartown, MA  02539",
+179,03/13/2020,13-Mar-25,SE,CARVER,OCEAN SPRAY CRANBERRIES,75000,Ocean Spray Cranberries,Patricia Gallagher,60 FEDERAL ROAD,"152 Bridge Street  Middleborough, MA  02346",
+184,05/24/2023,24-May-28,SE,HANOVER,HANOVER CROSSING,130000,Hanover Crossing POWTF Owners Association,Lloyd Sova,1775 WASHINGTON ST,"5905 E. Galbraith Road
+Suite 1000  Cincinatti, OH  45236",
+188,12/05/2003,05-Dec-12,WE,HANCOCK,JIMINY PEAK,100000,"Jiminy Peak, Inc.",Jim VanDyke,COREY ROAD,"37 Corey Road  Hancock, MA  01237",
+191,09/06/2023,06-Sep-28,SE,KINGSTON,"TOWN & COUNTRY MOBILE HOMES, INC",44200,Town & Country Kingston Estates Cooperative Corp.,Chris Yule,SUMMER STREET,"5 Mountain Ash Drive  Kingston, MA  02364",
+200,11/19/2019,26-Mar-26,SE,NANTUCKET,SURFSIDE WWTP,4000000,Nantucket Department of Public Works,Kara Buzanoski,SOUTHSHORE ROAD,"188 Madaket Road  Nantucket, MA  02554",
+201,09/07/2001,07-Sep-06,SE,NANTUCKET,SIASCONSET WWTP,220000,Town of Nantucket,Board of Selectmen,1 LOW BEACH ROAD,"188 Madaket Road  Nantucket, MA  02554",
+221,05/28/2015,02-Sep-21,SE,PLYMOUTH,PLYMOUTH SOUTH HIGHSCHOOL,22000,Town of Plymout Public Schools,Arthur Montrond,490 LONG POND ROAD,"10 Oak Street  Plymouth, MA  02360",
+226,02/17/2009,17-Feb-18,SE,PLYMOUTH,SUMMER HILL CONDO.,48970,Summer Hill Condominium Trust,James Brown,SUMMER ST,"c/o The Dolben Company
+25 Corporate Drive  BURLINGTON, MA  01803",
+249,03/22/2017,27-Jun-23,CE,STURBRIDGE,PILOT TRAVEL CENTER,37000,"Pilot Travel Centers, LLC",Joey Cupp,"400 HAYNES STREET, ROUTE 15","5508 Lonas Road
+P.O. Box 10146  Knoxville, TN  37909",
+250,03/26/2018,30-Jun-24,NE,MIDDLETON,FULLER POND VILLAGE,48000,Fuller Pond Condominium Trust,sarah luscomb,STONY BROOK LANE,"c/o Barkan Management Company, inc
+77 Main Street  Hopkinton, MA  01748",
+258,11/08/2018,12-Feb-25,SE,PLYMOUTH,WHITE CLIFFS CONDO.,80000,White Cliffs Community Association,David Mastroianni,STATE ROAD,"1 East Cliff Drive  Plymouth, MA  02360",
+259,09/21/2018,26-Dec-24,CE,ACTON,GREAT ROAD CONDOMINIUMS,27720,Great Road Condominium Trust,Debra R. Jean,GREAT ROAD,"380C Great Road  Acton, MA  01718",
+263,08/16/2021,16-Aug-26,SE,MASHPEE,WINDCHIME POINT,40000,"Paige Property Management, LLC",Nancy Paige,GREAT NECK ROAD,"c/o Windchime Condominium Association
+P.O. Box 321  Centerville, MA  02632",
+263,08/16/2021,16-Aug-26,SE,MASHPEE,WINDCHIME POINT,40000,Windchime Condominium Association,Anthony Colletti,GREAT NECK ROAD,"c/o American Properties Team, Inc
+500 West Cummings Park, Suite 6050  Woburn, MA  01801",
+272,03/15/2022,15-Mar-27,SE,MASHPEE,SOUTHPORT ON CAPE COD,172000,"Southport of Cape Cod Condo Assoc, Inc.","Teri Bergman, president",44 RELIANCE WAY,"23 Southport Drive  Mashpee, MA  02649",
+288,02/11/2022,11-Feb-27,CE,ACTON,ACORN PARK CONDO. TRUST,39750,Acorn Park Condominium Trust,Sri Tipirneni,OFF ACORN PARK DRIVE,"6 Walnut Street  Acton, MA  01720",
+290,09/13/2023,13-Sep-28,CE,HOPKINTON,INDIAN BROOK CONDO,32400,Indian Brook Condominium Association,Justin Lopes,OFF ELM STREET,"c/o Dannin Management
+P.O. Box 117  Brookline, MA  02446",
+299,07/13/2020,13-Jul-25,CE,STOW,BOSE CORPORATION,48000,Bose Corporation,Ryan Braun,40 OLD BOLTON ROAD,"The Mountain Road
+MS-3D1  Framingham, MA  01701",
+304,04/28/2017,03-Aug-23,SE,PLYMOUTH,OCEAN POINT CONDOS.,30000,Ocean Point Management Trust,Kerry Augustine,TAYLOR AVE,"c/o Mercantile Property Management
+P.O. Box 790  Buzzards Bay, MA  02532",
+305,06/23/2015,28-Sep-21,SE,YARMOUTH,MAYFLOWER PLACE,25000,"West Yarmouth Property I, LLC.",Shani Walter,579 BUCK ISLAND ROAD,"c/o Omega Healthcare
+200 International Circle  Hunt Valley, MD  21030",
+306,02/04/2019,11-May-25,SE,MASHPEE,MASHPEE COMMONS,180000,Mashpee Commons Limited Partnership,TOM FERONTI,GREAT NECK ROAD,"P.O. BOX 1530  Mashpee, MA  02649",
+307,04/30/2018,04-Aug-24,SE,YARMOUTH,KING'S WAY CONDOMINIUM,165000,King's Way Trust,Richard Omundsen,10 KING'S CIRCUIT,"10 King's Circuit  Yarmouthport, MA  02675",
+312,10/29/2007,29-Oct-16,SE,SEEKONK,RAMADA INN,29000,"Pramukh Greenport Real Estate, LLC",Raj Patel,213 TAUNTON AVENUE,"553 Washington Avenue  Albany, NY  12206",
+324,11/19/2018,23-Feb-25,SE,HARWICH,SNOW INN,80000,Wychmere Beach Club,Michael Sharlet,23 SNOW INN ROAD,"23 Snow Inn Road  Harwichport, MA  02646",
+344,01/03/2019,09-Apr-25,SE,YARMOUTH,THIRWOOD PLACE,24000,Flax Pond Nominee Trust,Gerald Street,237 NORTH MAIN STREET,"DBA Thirwood Place
+20 North Main Street  South Yarmouth, MA  02664",
+350,02/10/2009,10-Feb-18,WE,LANESBORO,BERKSHIRE MALL WWTF,70000,"Durga Property Holdings, Inc.",Vijayakumar Vemulapalli,ROUTE 8 AND OLD STATE ROAD,"11320 Chester Road  Cincinnati, OH  45246",
+352,10/05/2021,05-Oct-26,CE,LITTLETON,THE POINT TO BEAVER BROOK WWTF,38500,"Beaver Brook Wastewater Treatment Facility, LLC",Tim Power,ROUTE 119 & ROUTE 495,"c/o Sam Park & Company
+333 School Street, suite 200  Mansfield, MA  02048",
+357,02/11/2019,18-May-25,SE,HARWICH,WINGATE @ HARWICH WWTF,12800,"RegalCare Management, LLC","Eli Mirlis, CEO",111 HEADWATERS DRIVE,"111 Headwaters Drive  Harwich, MA  02645",
+362,08/28/2017,03-Dec-23,CE,LUNENBURG,LAKESHORE VIL/WOODLANDS,12500,Woodlands Village at Hickory Hill Lake Condo Ass,Robert Pease,170 ROYAL FERN DRIVE,"c/o Phoenix Co., Inc.
+650 Lincoln Street  Worcester, MA  01605",
+366,03/30/2021,30-Mar-26,NE,WESTFORD,WESTFORD TECH PARK,90000,Sewer Plant Land Realty Trust,"Arthur J. Gutierrez, Jr.",LITTLETON ROAD/RTE. 110,"c/o The Gutierrez Company
+200 Summit Drive  Burlington, MA  01803",
+372,05/22/2018,26-Aug-24,NE,BYFIELD,TRITON REGIONAL HIGH,15000,Triton Regional School,Christopher Walsh,112 ELM STREET,"112 Elm Street  Byfield, MA  01922",
+378,06/12/2017,17-Sep-23,NE,SUDBURY,LINCOLN-SUDBURY HIGH,20000,Lincoln-Sudbury Regional School District,Kevin Rossley,390 LINCOLN ROAD,"390 Lincoln Road  Sudbury, MA  01776",
+382,02/19/2019,26-May-25,SE,MASHPEE,STRATFORD PONDS,35500,The Stratford Ponds Condominium Trust,Hank Padula,28 MAIN STREET/ROUTE 130,"c/o Roberton MacColl
+1 Windsor Point  Mashpee, MA  02649",
+386,11/03/2020,03-Nov-25,NE,WESTFORD,HITCHIN' POST GREENS CONDO,80500,Hitchin' Post Green Condominium Association,"Thomas Ellis, Jr.",GREENBRIER DRIVE,"c/o Thomas Ellis Jr.
+5 Chicory Road  Westford, MA  01886",
+389,11/04/2016,09-Feb-23,SE,PLYMOUTH,"HOLTEC PILGRIM, LLC",37500,"Holtec Pilgrim, LLC","Krishan Singh, Manager",600 ROCKY HILL ROAD,"1 Holtec Blvd  Camden, NJ  08104",
+392,01/25/2018,02-May-23,SE,LAKEVILLE,KENSINGTON COURT,39900,"KCLS Construction Holding Company, LLC",Jonathan White,23 COMMERCIAL DRIVE,"10 Owl Drive  Sharon, MA  02067",
+394,01/07/2019,13-Apr-25,SE,KINGSTON,SILVER LAKE REG. HIGH,30000,Silver Lake Regional School District,Cara Mia Diegoli,256 PEMBROKE STREET,"250 Pembroke Street  Kingston, MA  02364",
+398,03/01/2016,06-Jun-22,SE,SANDWICH,SANDWICH HIGH SCHOOL,31000,Director of Facilities,Alan J Hall,365 QUAKER MEETING HOUSE ROAD,"Sandwich Public Schools
+33 Water Street  Sandwich, MA  02563",
+401,05/24/1995,24-May-00,SE,SANDWICH,FORESTDALE SCHOOL,20000,Sandwich Public Schools,Michelle Austin,FORESTDALE RD./RTE. 130,"365 Quaker Meeting House Road  Sandwich, MA  02537",
+402,05/24/1995,24-May-00,SE,SANDWICH,RIDGE SCHOOL,20000,Sandwich Public Schools,MICHELLE AUSTIN,QUAKER MEETINGHOUSE ROAD,"365 Quaker Meetinghouse Road  Sandwich, MA  02537",
+415,05/07/2019,12-Aug-25,SE,BOURNE,THE VILLAGES OF BROOKSIDE,60000,"Brookside Residential, LLC",John C. Dawley,32 BROOKSIDE DRIVE,"c/o Northland Residential Corporation
+20 Mall Road, Suite 220  Burlington, MA  01803",
+432,06/30/2021,30-Jun-26,CE,SOUTHBOROUGH,WEDGEWOOD CONDOMINIUMS,31680,Wedgewood Condominium Trust,David Averback,SOUTHWOOD DRIVE,"52 Wildwood Drive  Southborough, MA  01772",
+433,01/22/2018,28-Apr-24,SE,DUXBURY,THE VILLAGES AT DUXBURY,54000,"Welch Healthcare and Retirement Group, Inc.",James Welch,290 KINGS TOWN WAY,"52 Accord Park Drive  Norwell, MA  02061",
+435,11/03/2016,14-Sep-18,SE,NORWELL,VERC ENTERPRISES,4300,Verc Briteway Autowash,Paul Vercollone,424 WASHINGTON STREET,"5 Chestnut Street
+P.O. Box 2809  Duxbury, MA  02331",
+446,05/29/2018,02-Sep-24,CE,LITTLETON,PONDSIDE APARTMENTS,23000,First Limited Partnership,Dan Cantin,147 KING STREET,"147 King Street  Littleton, MA  01460",
+451,04/28/2016,03-Aug-22,SE,YARMOUTH,YARMOUTH STF,21000000,Town of Yarmouth,Jeff Colby,47 WORKSHOP ROAD,"Town Offices
+1146 Route 28  Yarmouth, MA  02664",
+460,09/15/2020,15-Sep-25,CE,BOXBOROUGH,BOXBORO REGENCY,40000,"Boxboro Hospitality, LLC",Brian Lafferty,242 ADAMS PLACE,"171 Great Road  Acton, MA  01720",
+462,01/10/2011,10-Jan-20,SE,KINGSTON,WINGATE @ SILVER LAKE,65000,Senior Residential Realty Limited Partnership,David Feldman,CHIPMAN WAY,"One Charles River Place
+63 Kendrick Street  Needham, MA  02494",
+469,06/19/2020,19-Jun-25,CE,OXFORD,ORCHARD HILL ESTATES,45000,New Orchard Hill Limited Partnership,"Taylor Maxwell, Trinity Management Co.",165 SUTTON STREET,"75 Federal Street
+4th Floor  Boston, MA  02110",
+499,02/25/2019,01-Jun-25,CE,SOUTHBOROUGH,ST. MARK'S SCHOOL,35000,Saint Mark's School of Southborough,Jack Cullina,25 MARLBOROUGH ROAD,"25 Marlborough Raod  Southborough, MA  01772",
+500,07/12/2016,17-Oct-22,SE,DUXBURY,DUXBURY SCHOOL COMPLEX,30500,Town of Duxbury,Peter Mackin,130 ST. GEORGE STREET,"878 Tremont Street  Duxbury, MA  02332",
+502,12/31/2020,31-Dec-25,CE,NEW BRAINTREE,DOC TRAINING FACILITY,114000,Commonwealth of Massachusetts,Gregory Dwelly,340 WEST BROOKFIELD ROAD,"State Police Training Academy
+340 West Brookfield Road  New Braintreet, MA  01531",
+516,10/04/2021,04-Oct-26,NE,WESTFORD,WESTFORD MIDDLE SCHOOL,24000,Westford Public Schools,Stephen Cronin,14 WEST STREET,"23 Depot Street  Westford, MA  01886",
+553,06/10/2014,10-Jun-19,SE,EAST BRIDGEWATER,SPEEDWAY CAR WASH,1312,North Bedford Street Car Wash,Devyn Dedominici,832 NORTH BEDFORD STREET,"dba Speedway Car Wash
+55 Fieldcrest Drive  East Bridgewater, MA  02333",
+562,02/13/2023,13-Feb-28,CE,BOLTON,THE INTERNATIONAL,22549,"Escalante - The International, LLC",Bruce Rehkop,197 BALVILLE ROAD,"2930 Bledsoe Street
+Suite 124  Fort Worth, TX  76107",
+566,10/17/2018,21-Jan-25,SE,SEEKONK,ANN & HOPE OF RI,26500,Seekonk Mall Trust,Steve Laramee,95 HIGHLAND AVENUE,"c/o Ann & Hope
+1 Ann & Hope Way  Cumberland, RI  02864",
+571,01/05/2019,11-Apr-25,CE,ACTON,SUBURBAN MANOR REHAB & NURSING,24500,Life Care Center of America,Christopher Foye,OFF GREAT ROAD,"1 Great Road  Acton, MA  01720",
+574,03/16/2021,16-Mar-26,NE,WESTON,MAPLEWOOD AT WESTON,36400,"Weston ALF Property, LLC",Nicholas Gullusci,99 NORUMBEGA ROAD,"c/o Nicholas Gullusci
+99 Norumbega Road  Weston, MA  02493",
+576,02/19/2019,26-May-25,SE,BARNSTABLE,MARSTONS MILLS MIDDLE SCHOOL,42900,Town of Barnstable,Peter Doyle,730 WEST BARNSTABLE ROAD,"Water Pollution Control Facility
+617 Bearse's Way  Hyannis, MA  02601",
+577,03/16/2018,20-Jun-24,SE,MASHPEE,WILLOWBEND DEVELOPMENT,113000,"New Willowbend Golf & Country Club, Inc.",Patricia Kilgallon,130 WILLOWBEND DRIVE,"Willowbend Community Trust
+130 Willowbend Drive  Mashpee, MA  02649",
+580,01/04/2022,04-Jan-27,NE,TOPSFIELD,MASCONOMET HEALTHCARE CTR,12500,LNF Corporation,Donald Macheca,123 HIGH STREET,"Masconomet Health Care
+123 High Street  Topsfield, MA  01938",
+585,09/22/2015,28-Dec-21,SE,ORLEANS,COMMUNITY OF JESUS,20943,"The Community of Jesus, Inc.",Jill Minster,14 ANCHOR DRIVE,"5 Bay View Drive
+P.O. Box 1094  Orleans, MA  02653",
+594,08/25/2020,24-Aug-25,WE,ASHFIELD,ASHFIELD WWTF,25000,Town of Ashland,Richard Chandler,705 CONWAY ROAD,"412 Main Street
+P.O. Box 560  Ashfield, MA  01330",
+595,02/23/2017,31-May-23,SE,WEST BRIDGEWATER,35 UNITED DRIVE,23500,"Ajax United Drive, LLC",Stuart Silberberg,35 UNITED DRIVE,"1140 Avenue of the Americas
+5th floor  New York, NY  10036",
+598,10/30/2019,04-Feb-24,SE,SHARON,MACINTOSH FARM COMMUNITY ASSOCIATION,35000,Macintosh Farm Community Association,David Axberg,19 DEDHAM STREET,"1017 Turnpike Street
+Suite 16  Canton, MA  02021",
+599,09/05/2017,11-Dec-23,SE,BREWSTER,SERENITY BREWSTER WWTF,32000,"Elevation at Brewster, LLC","Stuart Heaton, VP",873 HARWICH ROAD,"d/b/a Serenity Apartments at Brewster
+201 E. Pine Street, Suite 200  Orlando, FL  32801",
+603,02/22/2022,22-Feb-27,SE,AQUINNAH,WAMPANOAG TRIBAL HOUSING,15000,Wampanoag Tribal Housing Authority,David Zimmerman,22 TOTOPINNUMAYAK,"24 Totopinnumayak
+P.O. Box 479  Chilmark, MA  02535-0479",
+604,11/29/2018,05-Mar-25,NE,WAYLAND,HILLS @ MAINSTONE CONDO.,36000,Hills at Mainstone Condominium Trust,Deb/David Levy,MAINSTONE ROAD,"c/o Sterling Services, Inc.
+133 Hillside Drive  Wayland, MA  01778",
+608,05/13/2021,13-May-26,SE,MASHPEE,MASHPEE JR/SR HIGH,18000,Town of Mashpee,Catherine Laurent,ROUTE 151,"500 Old Barnstable Road  Mashpee, MA  02649",
+610,11/09/2016,14-Feb-23,NE,WESTON,CENTER ST SAS,7000,"Center Street SAS, LLC",Steve Bradley,508 BOSTON POST ROAD,"428 Boston Post Road  Weston, MA  02493",
+611,02/15/2023,15-Feb-28,NE,SALISBURY,SALISBURY BEACH,36000,Department of Conservation & Recreation,Leo Roy,STATE BEACH ROAD,"251 Causeway Street
+Suite 600  Boston, MA  02114",
+613,07/14/2017,19-Oct-23,SE,HARWICH,HARWICH LAUNDRY & CLEANERS,14400,"Two Doane, LLC",Thomas Johnson,RTE. 28 & DOANE RD,"2 Doane Road  Harwich Port, MA  02646",
+614,11/09/2016,14-Feb-23,SE,HALIFAX,WALMART,7500,"Walmart Stores East, LP",,295 PLYMOUTH STREET,"702 SW 8th Street  Bentonville, AR  72716-505",
+615,05/19/2022,19-May-27,SE,EASTON,EASTON SCHOOL DEPT.,31000,Town of Easton,"David Twombly, dir of operations",LOTHROP STREET,"School Department
+50 Oliver Street  Easton, MA  02356",
+616,10/20/2023,20-Oct-28,CE,STERLING,STERLING NURSING HOME,22000,Sterling Healthcare Nursing and Rehabilitation Ctr,Octavio Sanchez,DANA HILL ROAD,"Sterling Village
+18 Dana Hill Road  Sterling, MA  02368",
+619,06/14/2007,14-Jun-16,SE,MARSHFIELD,VERC ENTERPRISES,5800,"Verc Enterprises, Inc.",Paul Vercollone,535 PLAIN ST,"5 Chestnut Street
+P.O. Box 2809  Duxbury, MA  02331",
+620,10/06/2017,11-Jan-24,SE,FAIRHAVEN,WEST ISLAND WWTF,100000,Town of Fairhaven,Linda Schick,141 FIR STREET,"Town Hall
+40 Center Street  Fairhaven, MA  02159",
+622,09/29/2022,29-Sep-27,WE,ATHOL,QUABBIN VALLEY HEALTHCARE,22000,QVCC Realty Group Trust,Scott Wheeler,821 DANIEL SHAYS HIGHWAY,"821 Daniel Shays Highway  Athol, MA  01331",
+624,05/15/2017,20-Aug-23,NE,HAMILTON,HAMILTON/WENHAM HIGH,14690,Hamilton-Wenham Regional School District,Thomas F. Geary III,775 BAY ROAD,"5 School Street  Wenham, MA  01984",
+625,11/24/2009,24-Nov-18,SE,HINGHAM,QUEEN ANNE NURSING HOME,15900,"Queen Anne Nursing Home, Inc.",Scott Hansen,50 RECREATION PARK DRIVE,"50 Recreation Park Drive  Hingham, MA  02043",
+626,03/22/2007,22-Mar-16,SE,HALIFAX,NICE N CLEAN CARWASH,16000,Nice N' Clean Car Wash,Michael Deeb,412 PLYMOUTH STREET,"P.O. Box 387  West Bridgewater, MA  02379",
+627,04/16/2019,22-Jul-25,SE,WRENTHAM,WRENTHAM VILLAGE OUTLETS,70000,Wrentham Village Premium Outlet,Eric Ressler,SOUTH STREET,"1 Premium Outlet Blvd.
+Suite 100  Wrentham, MA  02093",
+629,05/02/2018,06-Aug-24,NE,WESTON,WESTON SCHOOLS,28900,Town of Weston Public Schools,Cynthia Mahr,456 WELLESLEY STREET,"89 Wellesley Street  Weston, MA  02493",
+630,12/18/2019,25-Mar-26,CE,STURBRIDGE,STURBRIDGE RV PARK WWTF,25000,"MHC Sturbridge, LLC","Kim Procon, Manager",19 MASHAPAUG ROAD,"c/o Equity Lifestyle Properties
+Two North Riverside Plaza, Suite 800  Chicago, IL  60606",
+631,12/15/2015,22-Mar-22,SE,HARWICH,MIDDLE & ELEM. SCHOOLS,16100,Monomoy Regional School District,Kathleen Isernio,263 SOUTH STREET,"425 Crowell Road  Chatham, MA  02633",
+632,05/11/2022,11-May-27,SE,NORTON,NORTON MIDDLE SCHOOL,19200,Town of Norton,"Joseph F. Baeta, Superintendent",64 WEST MAIN STREET,"Norton Public Schools
+64 Main Street  Norton, MA  02766",
+633,04/28/2016,03-Aug-22,SE,BREWSTER,OCEAN EDGE CONFERENCE CTR,39850,Ocean Edge Limited Partnership,John Mostyn,ROUTE 6A,"Bay Pines Development Co, Inc.
+660 Villages Drive  Brewster, MA  02631",
+634,06/28/2018,02-Oct-24,NE,WESTFORD,NASHOBA VIEW II,39900,Robbins Road Privately Owned WTF Owners Associatio,Eric Earnhart,OFF ROBBINS ROAD,"c/o Hudson Advisors, LP
+2711 North Haskell Avenue, Suite 1800  Dallas, TX  75204",
+635,09/20/2021,20-Sep-26,NE,WESTFORD,WESTFORD ACADEMY HIGH SCHOOL,32000,Westford Public Schools,Stephen Cronin,30 PATTEN ROAD,"23 Depot Street  Westford, MA  01886",
+636,03/16/2012,21-Jun-22,SE,CHATHAM,CHATHAM BARS INN,35000,"CBI Operations, LLC",Paul Zeust,297 SHORE ROAD,"c/o Capital Properties
+717 Fifth Avenue - 20th Floor  New York, NY  10022",
+638,11/28/2017,04-Mar-24,NE,WAYLAND,TRADITIONS WWTF,27120,Traditions of Wayland,"Alexander McNeil, Jr.",COCHITUATE ROAD,"10 Green Way  Wayland, MA  01778",
+639,02/11/2016,11-Feb-21,SE,SHARON,SHARON PUBLIC SCHOOLS,20400,Sharon Public Schools,Ken Wertz,181 POND STREET,"One School Street  Sharon, MA  02067",
+640,07/14/2017,19-Oct-23,SE,WELLFLEET,HARBORSIDE VILLAGE,21600,Harborside Village Cooperative Corp,Jeff Tierney,2000 RUDY'S WAY,"2000 Rudy's Way  Wellfleet, MA  02667",
+641,05/15/2018,19-Aug-24,CE,SUTTON,SUTTON PUBLIC SCHOOLS,10880,Sutoon Public Schools,Matt Murphy,BOSTON POST & PUTNAM HILL RDS.,"383 Boston Road  Sutton, MA  10590",
+642,08/22/2018,26-Nov-24,NE,NORTH READING,ROYAL MEADOW VIEW,17000,"134 North, LLC (Royal Health Group)","James Mamary, Jr.",134 NORTH STREET,"42 Winter Street  Pembroke, MA  02359",
+644,03/26/2018,30-Jun-24,CE,BOXBOROUGH,TECH CENTRAL PARK,24375,Piedmont Office Realty Trust,Alex Bane,80-90 CENTRAL STREET,"25 Burlington Mall Road
+Suite 204  Burlington, MA  01803",
+645,12/28/2021,28-Dec-26,CE,BOXBOROUGH,CAMPANELLI BUSINESS PARK,40000,"Campanelli Trigate Boxborough Sub, LLC",Ronald Billings,600 BEAVER BROOK ROAD,"1 Campanelli Drive  Braintree, MA  02184",
+646,02/26/2021,26-Mar-26,NE,CONCORD,CAMP THOREAU,20117,"The Thoreau Club, Inc.",Sebastien DeRobert,275 FOREST RIDGE ROAD,"275 Forest Ridge Road  Concord, MA  01742",
+647,08/08/2018,12-Nov-24,SE,EASTON,EASTON CROSSING CONDOMINIUMS,36600,Easton Crossing Condominium Trust,Paul Tallen,11 ADAMS STREET,"c/o First Service Residential
+3000 Davenport Ave - Suite 201  Canton, MA  02021",
+648,10/29/2020,29-Oct-25,WE,OTIS,OTIS WWTF,30000,Town of Otis,Chris Morris,353 NORTH MAIN ROAD,"Town Hall
+1 North Main Road  Otis, MA  01253",
+649,07/02/2021,02-Jul-26,NE,GEORGETOWN,LITTLES HILL,19800,Littles Hill Condo Trust,Keith Corriveau,LONDONDERRY LANE,"18 Londonderry Lane  Georgetown, MA  01833",
+650,03/17/2023,17-Mar-28,NE,WAYLAND,MEADOWS @ MAINSTONE FARM,24640,The Meadows at Mainstone Farm Condo Trust,,126 RICE ROAD,"126 Rice Road  Wayland, MA  01778",
+651,10/26/2021,26-Oct-26,NE,WESTON,THE CORPORATE CENTER  WWTF,34000,Boston Properties,Mike Fitzgerald,133 BOSTON POST ROAD,"Resevoir Place
+1601 Trapelo Road  Waltham, MA  02451",
+652,07/09/2018,13-Oct-24,CE,HOLLISTON,WOODLAND STREET SCHOOL,32080,Town of Holliston,"Travis Ahern, town administrator",100 LINDEN STREET,"703 Washington Street  Holliston, MA  01746",
+653,10/12/2022,12-Oct-27,SE,MARSHFIELD,MARSHFIELD PUBLIC SCHOOLS,19200,Town of Marshfield,"Fred Russell, Facilities Director",FURNACE STREET,"School Department
+76 South River Street  Marshfield, MA  02050",
+654,05/26/2010,26-May-19,CE,BOXBOROUGH,BROOK VILLAGE CONDO,33000,Brook Village condominium Association,Warner Guild,52 SWANSON COURT,"
+P.O. Box 210  Hopkinton, MA  01748",
+655,02/26/2018,02-Jun-24,CE,ACTON,ACTON RETIREMENT COMMUNITY,34520,Robbins Brook Condominium Trust,Frank Ethier,OFF ROUTE 27,"6 John Francis Lane  Acton, MA  01720",
+656,02/25/2019,01-Jun-25,CE,ACTON,TOWN OF ACTON WWTF,299000,Town of Acton,Corey York,20 ADAMS STREET,"Acton DPW Director
+14 Forest Street  Acton, Ma  01720",
+657,11/28/2022,28-Nov-27,CE,SHIRLEY,DEVENS WWTF,8100000,MassDevelopment,Mark Cohen,85 WALKER ROAD,"33 Andrews Parkway  Devens, MA  01434",
+658,02/03/2016,11-May-22,SE,WRENTHAM,POND HOME NURSING HOME,18000,Pond Home Nursing Home,Becky Annis,289 EAST STREET,"289 East Street  Wrentham, MA  02093",
+659,05/20/2019,25-Aug-25,SE,KINGSTON,KINGSTON WWTF,725000,Board of Sewer Commissioners,Elaine Fiore,6 CRANBERRY ROAD,"Town of Kingston
+26 Evergreen Street  Kingston, MA  02364",
+660,12/04/2019,11-Mar-26,NE,GEORGETOWN,GEORGETOWN HOUSING AUTH.,18900,Georgetown Housing Authority,Diane Drinan,23 TRESTLE WAY,"23 Trestle Way  Georgetown, MA  01833",
+661,02/28/2019,04-Jun-24,SE,EASTHAM,SHERATON 4 POINTS,28500,"Eastham MA Hotels, LLC",Robins Patel,ROUTE 6,"3800 State Highway  Eastham, MA  02642",
+662,02/16/2021,16-Feb-26,NE,NORTH READING,U.S. POSTAL SERVICE,16000,United States Postal Service,Nicholas C. Varoutsos,74-76 MAIN STREET,"74-76 Main Street  North Reading, MA  01889",
+663,01/05/2019,11-Apr-25,CE,LITTLETON,LITTLETON NURSING HOME,18000,Life Care Center of Nashoba Valley,Alan Daukantas,191 FOSTER STREET,"191 Foster Street  Littleton, MA  01460",
+665,04/27/2009,27-Apr-18,SE,PLYMOUTH,SUNRISE ASSISTED LIVING OF PLYMOUTH,13500,Sunrise Assisted Living of Plymouth,Michael Miles,97 WARREN AVENUE,"97 Warren Avenue  Plymouth, MA  02360",
+666,06/05/2019,10-Sep-25,NE,BOXFORD,MASCONOMET REG. SCHOOL,37548,Masconomet Regional School District,Douglas Batchelder,20 ENDICOTT ROAD,"20 Endicott Road  Boxford, MA  01921",
+667,10/14/2021,14-Oct-26,SE,COHASSET,COHASSET KNOLL NURSING HOME,6500,"REMQUEST, LLC",Alejandro Remos,1 CHIEF JUSTICE CUSHING HWY,"18501 Pines Blvd.
+Suite 107  Pembroke Pines, FL  33029",
+668,03/29/2018,03-Jul-24,SE,MASHPEE,SOUTH CAPE VILLAGE,24000,DPF Mashpee LLC,Michael Moran,672 FALMOUTH ROAD/RTE. 28,"c/o DPF Acquisitions LLC
+518 17th Street - 17th floor  Denver, CO  80202",
+669,04/10/2017,16-Oct-22,SE,FALMOUTH,VILLAGE LAUNDROMAT,10800,Falmouth Laundry,Zahid Rashid,432 EAST FALMOUTH HIGHWAY,"332 East Falmouth Highway  East Falmouth, MA  02536",
+670,02/02/2016,10-May-22,SE,BOURNE,BOURNE MIDDLE SCHOOL,35400,Bourne Public Schools,jordan geist,WATERHOUSE ROAD,"36 Sandwich Road  Bourne, MA  02532",
+671,11/19/2020,19-Nov-25,NE,WESTFORD,PRIMROSE PARK,35000,Primrose Park Condo Trust,Diana Heider,228 LITTLETON ROAD,"4 Lan Drive  Westford, MA  01886",
+672,08/02/2016,07-Nov-22,SE,DENNIS,PATRIOT SQ. SHOPPING CTR,17000,Patriot Square Associates,Robert Chamberlain,492 ROUTE 134,"500 Route 134
+P.O. Box  271  South Dennis, MA  02660",
+674,09/13/2010,13-Sep-19,SE,OAK BLUFFS,TOWN OF OAK BLUFFS,370000,Town of Oak Bluffs,Board of Selectmen,17 PENNSYLANVIA AVENUE,"2 Oak Bluffs Avenue  Oak Bluffs, MA  02557",
+675,11/13/2018,17-Feb-25,CE,HOPKINTON,EMC CORPORATION,83500,EMC Corporation,John Civiello,228-C SOUTH STREET CAMPUS,"228-C South Street  Hopkinton, MA  01748",
+676,06/25/2018,29-Sep-24,CE,LITTLETON,LITTLETON PUBLIC SCHOOLS,17600,Town of Littleton,"Cory Godfrey, Superintendent",56 KING STREET,"Littleton Public Schools
+39 Ayer Road  Littleton, MA  01460",
+677,07/24/2008,24-Jul-17,SE,PLYMOUTH,TOWN OF PLYMOUTH WWTF,3450000,Town of Plymouth,Gary Frizzell,131 CAMELOT DRIVE,"Town Hall
+11 Lincoln Street  Plymouth, MA  02360",
+678,12/07/2016,14-Mar-23,SE,LAKEVILLE,FREETOWN/LAKEVILLE REG. SCH,35000,Freetown/Lakeville Regional,Robert Souza,98 HOWLAND STREET,"98 Howland Road  Lakeville, MA  02347",
+680,03/27/2008,27-Mar-17,SE,PLYMOUTH,PINEHILLS LLC WWTF,620000,"Pinehills, LLC",Deborah Sedares,33 SUMMERHOUSE DRIVE,"33 Summerhouse Drive  Plymouth, MA  02360",
+681,05/23/2016,27-Sep-22,WE,STOCKBRIDGE,CAMP MAH-KEE-NAC,20195,"Camp Group, Mah-Kee-Nac Real Estate Co., LLC",Bart Margheim,6 HAWTHORNE ROAD,"4 New King Street  White Plains, NY  10604",
+682,05/11/2021,11-Jun-26,WE,SHEFFIELD,BERKSHIRE SCHOOL,80000,Berkshire School,Timothy Fulco,245 UNDERMOUNTAIN ROAD,"245 North Undermountain Road  Sheffield, MA  01257",
+685,05/08/2018,12-Aug-24,SE,EASTON,ROLLING PINES CONDOMINIUMS,36000,"Rolling Pines Associates, Inc.",Maureen Fitzsimmons,1 PINEBROOK LANE,"1 Pinebrook Lane  South Easton, MA  02375",
+686,06/09/2021,09-Jun-26,CE,BOXBOROUGH,BOXBOROUGH MEADOWS,15840,Boxborough Meadows Homeowner's Trust,Jesse Robinson,LORING AVENUE,"P.O. Box 2726  Acton, MA  01720",
+687,05/31/2019,05-Sep-25,SE,HANOVER,AGORA MARKET PLACE,18500,"Agora Market Place, LLC",Frank Giglio,2087 WASHINGTON STREET,"100 Ledgewood Place  Rockland, MA  02370",
+689,07/21/2020,21-Jul-25,NE,CONCORD,NASHAWTUC COUNTRY CLUB,14955,"Nashawtuc Country Club, Inc.",Paul Dwyer,1861 SUDBURY ROAD,"1861 Sudbury Road  Concord, MA  01742",
+690,11/22/2017,27-Feb-24,WE,HANCOCK,PATRIOT RESORTS/BRODIE MTN,90000,Vacation Village in the Berkshires Owners Ass. Inc,Robin Hamersmith-Cameron,276 BRODIE MOUNTAIN ROAD,"276 Brodie Mountain Road  Hancock, MA  01237",
+691,09/14/2021,14-Sep-26,CE,BOLTON,NASHOBA REG. HIGHSCHOOL,12000,Nashoba Regional School District,Robert Frieswick,12 GREEN ROAD,"50 Mechanic Street  Bolton, MA  01740",
+692,06/14/2023,14-Jun-28,CE,NORFOLK,NORFOLK TOWN CENTER,30000,Town of Norfolk,Robert McGhee,INDEPENDENCE WAY,"Town Hall,  2nd Floor
+One Liberty Lane  Norfolk, MA  ",
+697,04/12/2017,18-Jul-23,NE,WESTON,THE STONEGATE AT WESTON CONDO,21010,The Stonegate at Weston Condominium Trust,Geoffrey Tillotson,JERICHO ROAD,"c/o The Dartmouth Group
+4 Preston Ct, suite 101  Bedford, MA  01730",
+698,04/15/2021,15-Apr-26,SE,MASHPEE,NEW SEABURY,300000,"New Seabury Private Sewage Treatment Facility, LLC",Joe Colasuonno,FAIRWAY LANE,"c/o New Seabury Properties, LLC
+20 Red Brook Road  Mashpee, MA  02649",
+699,07/01/2021,01-Jul-26,NE,WESTFORD,ONE WESTFORD TECH PARK WEST,18750,Westford West 1 Limited Partnership,Peter Denial,OFF LITTLETON ROAD,"c/o The Gutierrez Company
+200 Summit Drive  Burlington, MA  01803",
+701,05/05/2010,05-Jun-19,WE,CHESHIRE,PINE VALLEY MOBILE HOME,28830,"Pine Valley, MHC",Dan Theriault,110 DUBLIN ROAD,"Attn: manager
+110 Dublin Road  Cheshire, MA  01225",
+703,04/12/2023,12-Apr-28,SE,HINGHAM,BLACK ROCK GOLF COMMUNITY,56065,Black Rock Community Trust,Brenda McKeon,OLD WARD STREET,"25 Clubhouse Drive  Hingham, MA  02043",
+704,11/10/2021,10-Nov-26,CE,STOW,MEETING HOUSE AT STOW CONDOMINIUM TRUST,12000,Meetinghouse at Stow Condominium Trust,Al Heffernan,189 GREAT ROAD,"34 Meetinghouse Lane  Stow, MA  01775",
+706,07/27/2022,27-Jul-27,CE,FRANKLIN,ADIRONDACK CLUB,9500,"SRA Management Group, LLC",Robert Hinrichs,800 CHESTNUT STREET,"dba The Adirondack Club
+800 Chestnut Street  Franklin, MA  02038",
+707,08/05/2020,05-Aug-25,NE,WESTFORD,VILLAGE AT STONE RIDGE,25000,Village at Sone Ridge Condominium Trust,"Larry Wiederholt, wastewater chair",OFF TYNGSBOROUGH ROAD,"36 Stone Ridge Road  Westford, MA  01886",
+709,06/29/2018,03-Oct-24,SE,FOXBORO,GILLETTE STADIUM,250000,"Foxborough Realty Associates, LLC",Jim Nolan,1 PATRIOT PLACE,"One Patriot Place  Foxborough, MA  02035",
+710,06/01/2016,06-Sep-22,NE,LYNNFIELD,LYNNFIELD MIDDLE SCHOOL,15210,Town of Lynnfield,John Tomasz,505 MAIN STREET,"Public Works
+55 Summer Street  Lynnfield, MA  01940",
+711,10/19/2007,19-Oct-16,SE,WESTPORT,"EDGEWATER APARTMENTS, LLC",11000,Edgewater Apartments,Paul Carrigg,87 SANFORD ROAD,"291 Middle Street  Fall River, MA  02724",
+713,07/28/2015,02-Nov-21,SE,PROVINCETOWN,PROVINCETOWN WWTF,650000,Town of Provincetown,"Richard Waldo, DPW Director",OLD BURN DUMP & ROUTE 6,"2 Mayflower St.  Provincetown, MA  02657",
+715,12/15/2022,15-Dec-27,NE,ROWLEY,MILLWOOD APARTMENTS,10360,"ViceRoy Capital Management, LLC",Carl Valeri,HAVERHILL STREET/DODGE ROAD,"2 Main Street
+Suite E  Peabody, Ma  01960",
+715,12/15/2022,15-Dec-27,NE,ROWLEY,MILLWOOD APARTMENTS,10360,Millwood Realty Trust,Barbara Webber,HAVERHILL STREET/DODGE ROAD,"1020 Southern Artery  Quincy, MA  02169",
+716,08/06/2020,06-Aug-25,NE,DOVER,DOVER-SHERBORN HIGH,15260,Dover-Sherborn Regional School District,Valerie Spriggs,137 FARM STREET,"157 Farm Street  Dover, MA  02030",
+717,10/12/2023,12-Oct-28,WE,MT. WASHINGTON,YMCA CAMP HI-ROCK,10000,YMCA Camp Hi-Rock,Jessica Speer-Holmes,EAST STREET,"162 East Street  Mt. Washington, MA  01258",
+719,07/03/2019,08-Oct-25,SE,FALMOUTH,ATRIA-WOODBRIAR,39750,"VTR Falmouth, LLC",Sara Strange,339 GIFFORD STREET,"500 North Hurstbourne Parkway
+Suite 200  Louisville, KY  40202",
+720,04/13/2017,19-Jul-23,SE,PLYMOUTH,PLYMOUTH AIRPORT,25000,Town of Plymouth,Thomas Mayer,246 SOUTH MEADOW ROAD,"Airport Commission
+246 South Meadow Road  Plymouth, MA  02360",
+721,03/04/2022,04-Mar-27,NE,WESTFORD,STONY BROOK SCHOOL,22000,Westford Public Schools,Stephen Cronin,9 FARMER'S WAY,"23 Depot Road  Westford, MA  01886",
+722,08/10/2016,15-Nov-22,NE,LYNNFIELD,LYNNFIELD HIGH SCHOOL,12980,Town of Lynnfield,John Tomasz,ESSEX STREET,"Public Works
+55 Summer Street  Lynnfield, MA  01940",
+723,04/23/2018,28-Jul-24,CE,HARVARD,HARVARD PUBLIC SCHOOLS,23000,Town of Harvard,Timothy Bragan,"MASSACHUSETTS AVE, PARCEL 40","Harvard Public Schools
+14 Massachusetts Avenue  Harvard, MA  01451",
+724,01/18/2012,25-Apr-22,NE,WESTFORD,BROOKSIDE MILL CONDOMINIUM,7480,Brookside Mill Condominium Trust,Tim Cosgrave,OFF BROOKSIDE ROAD,"c/o Great North Property Management, Inc.
+636 Daniel Webster Highway  Merrimack, NH  03054",
+727,04/06/2009,06-Apr-18,CE,BOXBOROUGH,HARVARD RIDGE CONDO. TRUST,33130,Harvard Ridge Condominium Trust,Kenneth Reilly,SWANSON ROAD,"c/o The Dartmouth Group
+3 Preston Court  Bedford, MA  01730",
+728,04/14/2021,14-Apr-26,SE,BARNSTABLE,COTUIT LANDING SHOPPING  CTR,21600,The Stop & Shop Supermarket Company LLC,John Mesheau,3860 FALMOUTH ROAD,"1385 Hancock Street  Quincy, MA  02169",
+729,03/02/2018,06-Jun-24,NE,WESTFORD,ABBOTT SCHOOL,13120,Westford Public Schools,Stephen Cronin,25 DEPOT STREET,"23 Depot Street  Westford, MA  01886",
+730,12/01/2017,07-Mar-24,NE,IPSWICH,TURNER HILL WWTF,99000,"Turner Hill Wastewater Treatment Facility, LLC","John Knopf, Trustee",32 STONEBRIDGE ROAD,"
+9 Stonebridge Road  Ipswich, MA  01938",
+731,10/27/2017,01-Feb-24,SE,PLYMOUTH,HIGH POINT TREATMENT CTR,20000,"High Point Ttreatment Center, Inc.",Carl Soares,1233 STATE ROAD,"725 Shawmut Avenue  New Bedford, MA  02746",
+732,07/01/2022,01-Jul-27,SE,TISBURY,TISBURY WWTF,139000,Town of Tisbury,John W. Grande,"OLGA RD, OFF SOUTH ST.","51 Spring Street
+P.O. Box 1239  Vineyard Haven, MA  02568",
+733,11/15/2023,15-Nov-28,CE,LUNENBURG,VILLAGE @ FLATHILL,14850,Village at Flat Hill Condominium Association,Paul Kannaley,CORTLAND CIRCLE,"50 Cortland Circle  Lunenburg, MA  01462",
+734,10/16/2019,21-Jan-26,NE,GEORGETOWN,"LONGVIEW APARTMENTS AT GEORGETOWN, LLC",36080,Longview Apartments at Georgetown LLC,Norino Mirra,9 PATRIOT LANE,"6 Norino Way  Georgetown, MA  01833",
+736,03/15/2019,20-Jun-25,SE,HINGHAM,DERBY STREET SHOPPES,54000,"W/S/H Hingham Properties, LLC",Victoria Maquire,100 DERBY STREET,"100 Boylston Street  Chestnut Hill, MA  02467",
+736,03/15/2019,20-Jun-25,SE,HINGHAM,DERBY STREET SHOPPES,54000,"W/S/M Hingham Properties, LLC",Albert J. Rocco,100 DERBY STREET,"c/o S. R. Weiner & Associates, Inc.
+1330 Boylston Street, Suite 212  Chestnut Hill, MA  02043",
+738,09/08/2015,14-Dec-21,SE,FALMOUTH,NEW SILVER BEACH WWTF,60000,Town of Falmouth,Amy Lowell,WILLIAM ROAD,"Town Hall
+59 Town Hall Square  Falmouth, MA  02540",
+739,06/28/2023,28-Jun-28,SE,WRENTHAM,WRENTHAM PUBLIC SCHOOLS,18100,Town of Wrentham,Chad Lovett,120 TAUNTON STREET,"79 South Street  Wrentham, MA  02903",
+742,10/02/2019,07-Jan-26,SE,YARMOUTH,MILL POND VILLAGE CONDOMINIUM,44880,Mill Pond Village Condominium Association,Andrew Witter,OFF CAMP STREET,"c/o First Property Management
+1046 Main Street, Suite 11  Osterville, MA  02655",
+743,10/01/2002,01-Oct-07,SE,EASTON,EASTON MOBILE HOMES,36600,EASTON MOBILE HOMES PARK,robert harold,WASHINGTON STREET,"305 TURNPIKE STREET  EASTON, MA  02375",
+744,11/13/2017,18-Feb-24,CE,FRANKLIN,VILLAGES AT OAK HILL WWTF,23000,Villages At Oak Hill Condominium Trust,"Robert Messie, Trustee",5 DANTE AVENUE,"7 Francesco Drive  Franklin, MA  02038",
+746,09/21/2010,21-Sep-19,SE,BREWSTER,PLEASANT BAY HEALTH CTR,26500,"Pleasant Bay Health and Living Centers, LLC",Joshua Zuckerman,383 SOUTH ORLEANS ROAD,"383 South Orleans Road  Brewster, MA  02631",
+747,04/15/2016,21-Jul-22,SE,PEMBROKE,LOWE'S HOME CENTER,40000,LOWE'S HOME CENTER INC,Melissa Call,108 OLD CHURCH STREET,"Box 111  NORTH WILKESBORO, NC  28697",
+748,12/16/2009,16-Dec-18,SE,PLYMOUTH,VILLAGE CROSSING,20000,VILLAGE CROSSING CONDOMINIUM TRUST,Claire Graham,200 OLD FORGE ROAD,"c/o MANOMET REAL ESTATE, LLC 16 ROCKLAND STREET  
+CANTON, MA  02021",
+749,11/19/2019,24-Feb-26,NE,BOXFORD,FOUR MILE VILLAGE,8668,"Boxford Friendship Foundation, Inc.",Tim Murphy,OFF IPSWICH ROAD,"50 Four Mile Village  Boxford, MA  01921",
+750,06/24/2022,24-Jun-27,NE,HAMILTON,ASBURY CAMP MTG CORP.,26565,Asbury Camp Meeting Association,Roger Perham,1 PLEASANT AVENUE,"15 Lee Park  South Hamilton, MA  01982",
+751,11/29/2018,05-Mar-25,NE,WESTFORD,WESTFORD VALLEY MARKETPLACE,37000,"Westford Valley Marketplace, Inc.",Brent Hall,160-174 LITTLETON ROAD,"c/o UBS Realty Investors, LLC
+10 Statehouse Square, 15th Floor  Hartford, CT  06103-3604",
+752,12/23/2019,30-Mar-26,NE,MIDDLETON,MIDDLETON MARKETPLACE,13520,DSM MB II LLC,Suzanne Delaney,230 SOUTH MAIN STREET,"875 East Street
+attn: Real Estate Manager  Tewksbury, MA  01876",
+753,10/25/2017,30-Jan-24,SE,HANOVER,BROADWAY WATER TREATMENT,98000,Town of Hanover,Neal Merritt,507 BROADWAY STREET,"Water Operations
+40 Pond Street  Hanover, MA  02339",
+754,04/07/2016,13-Jul-22,SE,MARSHFIELD,SPYGLASS LANDING,12600,"Spyglass Landing Condominium Association, Inc.",,192 GROVE STREET,"c/o Arbor Management Company, Inc.
+One Snow Road, Suite 2  Marshfield, MA  02050",
+755,07/02/2018,06-Oct-24,SE,PEMBROKE,PEMBROKE HIGH SCHOOL,20720,Town of Pembroke Schools,Erin Obey,LEARNING LANE,"72 Pilgrim Road  Pembroke, MA  02359",
+756,09/25/2018,30-Dec-24,SE,EAST BRIDGEWATER,HARMONY CROSSING,22000,Harmony Crossing Sewage Trust,Steven Keiran,47 RODEO DRIVE,"c/o Realty Condo Management
+P.O. Box 607  Assonet, MA  02702",
+757,03/19/2018,23-Jun-24,NE,WESTFORD,RESIDENCES AT WESTFORD WEST,44880,"Bell Fund VII Westford Valley, LLC",John Tomlinson,312 LITTLETON ROAD,"c/o Bell Partners, Inc
+300 North Green Street, Suite 1000  Greensboro, NC  27401",
+759,05/14/2010,14-May-19,SE,EASTON,SOUTHEAST REHABILITATION & SKILLED CENTER,26100,EASTON HEALTH GROUP,PATRICK SHEEHAN,184 LINCOLN STREET,"184 LINCOLN STREET  EASTON, MA  02356",
+760,01/26/2023,26-Jan-28,CE,SUTTON,SUTTON WWTF,110000,Town of Sutton,Donald Obuchowski,23 HOUGH ROAD,"4 Uxbridge Road  Sutton, MA  01590",
+761,06/28/2017,03-Oct-23,WE,GREAT BARRINGTON,BERKSHIRE HILLS REG. SCHOOL,35000,Berkshire Hills Regional School District,Steven Soule,309 MONUMENT VALLEY RD.,"50 Main Street
+P.O. Box 617  Stockbridge, MA  01262",
+762,03/15/2019,20-Jun-23,SE,HANOVER,NORTH POINTE APARTMENTS,13090,"511 WASHINGTON STREET, LLC",R. RICHARD LINCOLN,511 AND 525 WASHIINGTON STREET,"4 FIRST STREET  BRIDGEWATER, MA  02324",
+765,06/08/2010,08-Jun-19,SE,NORWELL,WASHINGTON PLACE,9680,"NORWELL WASHINGTON, LLC",JOHN SULLIVAN,239 WASHINGTON STREET,"293 Washington Street
+Unicorn  Norwell, MA  02061",
+767,01/10/2020,17-Apr-26,SE,SEEKONK,DARLING DEVELOPMENT CORP.,48000,DARLING DEVELOPMENT CORPORATION,David Darling,"RTE I-95, RTE 14 & RTE 6","1105 FALL RIVER AVENUE  SEEKONK, MA  02771",
+772,07/01/2009,01-Jul-18,SE,HINGHAM,LINDEN PONDS AT HINGHAM,306000,LINDEN PONDS AT HINGHAM: AN ERICKSON RETIREMENT CO,John Amonte,411 WHITING STREET,"300 LINDEN PONDS WAY  HINGHAM, MA  02043",
+773,01/25/2023,25-Jan-28,SE,HANOVER,ST COLETTA'S & CARDINAL CUSHING SCH,52485,"Cardinal Cushing Centers, Inc.",,405 WASHINGTON STREET,"405 Washington Street  Hanover, MA  02339",
+774,04/14/2020,14-Apr-25,SE,FALMOUTH,WOODSHOLE-QUISSET CAMPUS,32500,WOODS HOLE OCEANOGRAPHIC INSTITUTION,David Derosier and Paul Avery,OFF OYSTER POND ROAD,"44 Water Street
+Mail Stop 16  Woodshole, MA  02543",
+775,05/24/2021,24-May-26,CE,STURBRIDGE,STURBRIDGE RETIREMENT CORP.,23171,Sturbridge Retirement Cooperative Corporation,Mary Berry,1 KELLY ROAD,"1 Kelly Road  Sturbridge, MA  01566",
+776,08/31/2018,04-Jan-25,NE,CONCORD,CONCORD COUNTRY CLUB,17303,Concord Country Club,Gregg Cincotta,249 OLD RD TO NINE ACRE CORNER,"249 Old Road to Nine Acre Corner  Concord, MA  01742",
+778,06/04/2019,09-Sep-25,SE,BOURNE,SENIOR RESIDENCES OF POCASSET,16350,Cape Cod Senior Residences of Pocasset,Peter Mullin,100 DR. JULIUS KELLEY LANE,"100 Dr. Julius Kelley Lane  Bourne, MA  02559",
+779,08/16/2019,21-Nov-25,NE,DOVER,THE MEADOWS OF DOVER,5280,"20 Springdale Avenue, LLC",Chris Mastrangelo,20 SPRINGDALE AVENUE,"c/o Peacock Property Management
+529 Main Street  Charlestown, MA  02129",
+780,03/29/2018,03-Jul-24,SE,YARMOUTH,DENNIS-YARMOUTH HIGH SCHOOL,17000,Dennis-Yarmouth Reg School District,SANDRA CASHEN,296 STATION AVENUE,"296 STATION AVENUE  SOUTH YARMOUTH, MA  02664",
+781,05/11/2009,11-May-18,SE,EAST BRIDGEWATER,WHITE PINE VILLAGE,25000,White Pine VillageTrustees,Robert Hazlett,off BELL DRIVE,"6 Della Way  East Bridgewater, MA  02333",
+782,05/08/2019,11-Sep-25,NE,LYNNFIELD,SUNRISE AT LYNNFIELD,13500,Sunrise Assisted Living of Lynnfield,John Jetty,55 SALEM STREET,"55 Salem Street  Lynnfield, MA  01940",
+783,05/01/2018,05-Aug-24,NE,CARLISLE,CARLISLE PUBLIC SCHOOLS,13500,Carlisle Public School,David Flannery,304 BEDFORD ROAD,"83 School Street  Carlisle, MA  01741",
+784,04/24/2019,30-Jul-25,CE,HOLLISTON,CRESTVIEW CONDOMINIUM TRUST,15000,Crestview Condominium Trust,Paula Pluta,147 TURNER ROAD,"c/o Empire Companies
+33 Lyman Street, suite 210  Westborough, MA  01581",
+785,10/17/2019,22-Jan-26,SE,SANDWICH,RIVERVIEW SCHOOL,15000,Riverview School,Richard Dalrymple,551 ROUTE 6A,"551 Route 6A  East Sandwich, MA  02563",
+786,05/22/2020,22-May-25,CE,STOW,"STOW VILLAGES, LLC",34000,Villages of Stow,Mark Taylor,OFF ROUTE 117,"5 Lyman Street  Westborough, MA  01581",
+787,04/02/2019,08-Jul-25,SE,PEMBROKE,PEMBROKE WOODS,45310,PEMBROKE WOODS,Michelle Vieira,PEMBROKE WOODS DRIVE,"1100 PEMBROKE WOODS DRIVE  PEMBROKE, MA  02359",
+788,12/11/2019,18-Mar-26,SE,ORLEANS,SKAKET CORNERS SHOPPING CTR,20000,"TRT Orleans, LLC",Alicia Busconi,9 WEST ROAD,"c/o Key Point Partners, LLC
+205 West Grove Street  Middleborough, MA  02346",
+790,02/22/2023,22-Sep-23,SE,WRENTHAM,MAPLES REHAB & NURSING,22000,"Maples Rehab & Nursing, LLC",,90 TAUNTON STREET,"90 Taunton St  Wrentham, MA  02093",
+791,09/21/2010,21-Sep-19,SE,HANSON,STONEBRIDGE COMMONS CONDOMINIUM,22650,STONEBRIDGE COMMONS CONDOMINIUM,,LIBERTY & WINTER STREETS,"C/O AMERICAN PROPERTIES TEAM, INC.
+500 WEST CUMMINGS PARK/SUITE 6050  WOBURN, MA  01801",
+792,03/17/2023,17-Mar-28,NE,SHERBORN,WHITNEY FARM,20460,"Whitney Farms, LLC",Edward Moore,59 WHITNEY STREET,"8 Doaks Lane  Marblehead, MA  01945",
+793,01/28/2005,28-Jan-14,SE,WRENTHAM,KING PHILIP REGIONAL SCHOOL,27000,KING PHILIP REGIONAL SCHOOL DISTRICT,PAUL SCHAEFER,201 FRANKLIN STREET,"201 FRANKLIN STREET  WRENTHAM, MA  02093",
+794,04/03/2018,08-Jul-24,SE,COHASSET,ESTATES AT COHASSET,18920,Toll MA Land Limited Partnership,scott p miccile,117 BEECHWOOD STREET,"134 Flanders Road
+Suite 275  Westborough, MA  01581",
+795,07/02/2021,02-Jul-26,NE,WESTFORD,LAUREL HILL PRIVATE SEWER TREATMENT FACILITY,95000,Avalon Acton Wastewater Treatment Facility,Christopher Kenyon,OFF DURKEE LANE,"Avalonbay Communities, Inc.
+1000 Avalon Drive  Acton, MA  01720",
+796,09/13/2023,13-Sep-23,CE,HOLLISTON,HOLLISTON HIGHLANDS,17702,The Orchards at Holliston Condominium Trust,Francesca Hildreth,353 HIGHLAND STREET,"c/o Sterling Services, Inc.
+589 Concord Street  Holliston, MA  01730",
+798,06/12/2017,17-Sep-23,CE,NORFOLK,VILLAGES AT RIVERS EDGE,32000,DiPlacido Development Corporation,"Thomas DiPlacido, Jr.",OFF HOLBROOK STREET,"850 Franklin Street
+Suite 8  Wrentham, MA  02093",
+803,10/30/2015,04-Feb-22,NE,WESTFORD,SUMMER VILLAGE,68000,Summer Village Condo Assoc Trust,"Lawrence Harrington, Trustee",99 LONG SOUGHT FOR POND RD,"6 Summer Village Road  Westford, MA  01886",
+804,10/12/2021,12-Oct-26,SE,HANOVER,SCONSET LANDING,38320,"FMNV Hanover Villages, LLC",Ralph DiGiorgio,ROUTE 53/PARK DRIVE EXTENSION,"30 Log Bridge Road  Middleton, MA  01949",
+805,04/13/2022,13-Apr-27,SE,NORWELL,WILDCAT HILL,24200,Wildcat Hill Homeowners Association Trust,Tim Wall,OFF WILDCAT LANE,"c/o American Properties Team, Inc.
+500 West Cummings Park, Suite 6050  Woburn, MA  01801",
+807,01/31/2012,08-May-22,SE,DIGHTON,DIGHTON WOODS,21450,DIGHTON WOODS LLC,JOE DEGIROLAMO,DIGHTON WOODS CIRCLE,"125 HIGH STREET  MANSFIELD, MA  02048",
+808,02/25/2019,01-Jun-25,CE,WEST BROOKFIELD,QUABOG ON THE COMMON,18310,"Fair Havens, Inc.","Angela Bovill, President",47 EAST MAIN STREET,"c/o Ascentria Care Alliance
+14 East Worcester Street, Suite 300  Worcester, MA  01604",
+814,02/05/2021,05-Feb-26,NE,WESTON,HIGHLAND MEADOWS,23430,Highland Meadow Condominium Trust,Eric Rubin,HIGHLAND STREET,"c/o Dannin Management Corp.
+P.O. Box 117  Brookline, MA  02446",
+815,12/19/2019,26-Mar-26,SE,REHOBOTH,THE RESERVE AT SPRING HILL,39900,"Spring Hill Realty Development, Inc.",Robert Calise,47 SPRING STREET,"47 Spring Street  Rehoboth, MA  02347",
+816,04/13/2017,19-Jul-23,NE,LITTLETON,"WESTLETON HILL WORKS, LLC",52840,"Westleton Hill Works, LLC",Ed Dumont,563 KING STREET,"400 Littleton Road  Westford, MA  01886",
+820,03/16/2021,16-Mar-26,NE,WESTFORD,ABBOTT MILL,39930,"Abbot Mill, LLC",Christopher Yule,7 PLEASANT STREET,"7 Pleasant Street  Westford, MA  01886",
+821,12/26/2006,26-Dec-15,SE,FOXBORO,FORMER FOXBORO STATE HOSPITAL,45000,Chestnut Green/ Former Foxboro State Hospital,Jesse Bousquet,CHESTNUT STREET,"434 Massachusetts Avenue  Boston, MA  02118",
+822,10/14/2021,14-Oct-26,CE,OXFORD,HOME DEPOT & RETAIL DEVELOPMENT,26240,Oxford Sutton Mass Condominium Trust,Katie Keefe,99 SUTTON AVE,"c/o Capital Group Properties
+259 Turnpike Road  Southborough, MA  01772",
+823,06/05/2018,09-Sep-24,SE,SEEKONK,GREENBRIER CONDOMINIUMS,120000,"RI SEEKONK HOLDINGS,  LLC",Charles Tapalain,100 GREENBRIER DRIVE,"P.O. BOX 6684  PROVIDENCE, RI  02940",
+824,06/11/2018,15-Sep-24,WE,BECKET,2 STATE YMCA,40000,Two State YMCA,Scott Freeman,748 HAMILTON RD,"748 Hamilton Road  Becket, MA  01223",
+826,11/30/2022,30-Nov-27,SE,COHASSET,PRESERVE AT COHASSET,37900,"King Fee Owner, LLC","Matthew Ferrari, VP",155 KING STREET,"c/o TruAmerica Multifamily, LLC
+10100 Santa Monica Blvd, suite 400  Los Angeles, CA  90067",
+827,10/26/2006,26-Oct-15,SE,EAST BRIDGEWATER,WAYSIDE FARM,22000,"CAVENDISH PLACE, LLC",RICK LINCOLN,951 NORTH BEDFORD STREET,"4 FIRST STREET  BRIDGEWATER, MA  02324",
+828,09/20/2011,26-Dec-21,SE,WRENTHAM,THE PRESERVE @ OAK HILL,27280,Preserve at Oak Hill Maintenance Trust,Alexis Andersen,12 OAK HILL AVENUE,"Gregory Pollard, trustee
+25 Ridge Road  Wrentham, MA  02093",
+830,04/01/2020,01-Apr-25,SE,BOURNE,THE PARK AT POCASSET,38605,Charles W. Austin Trust,Phil Austin,117-149 BARLOWS LANDING ROAD,"Box 1088  Pocasset, MA  02559-1088",
+831,08/13/2021,13-Aug-26,CE,ACTON,SPRING HILL COMMONS APTS.,20570,"Spring Hill at Acton, LLC",Mitchell Levey,GREAT ROAD & HARRIS STREET,"181 Wells Avenue  Newton, MA  02459",
+832,03/01/2023,01-Mar-28,NE,NORTH READING,EDGEWOOD LUXURY APARTMENTS,63240,USB Global Asset Management,Robert Wilkins,100 LOWELL ROAD,"10 State House Square
+15th floor  Hartford, CT  06103-3604",
+833,11/10/2021,10-Nov-26,CE,BOLTON,EMERSON & FLORENCE-SAWYER SCHOOL,38000,Town of Bolton,Joseph Lynch,MECHANIC STREET,"663 Main Street  Bolton, MA  ",
+834,08/10/2020,10-Aug-25,CE,HUDSON,HUDSON HIGHLANDS,82000,"Highland Commons Associates, LLC",Jed Hayes,ROUTE 62/COOLIDGE STREET,"10 Waterside Drive
+Suite 200  Farmington, CT  06032",
+837,11/02/2021,02-Nov-26,CE,STOW,STOW SHOPPING PLAZA,19000,"Linear Retail Stow #1, LLC",Greg Drocz,155 GREAT ROAD,"5 Burlington Woods Drive
+Suite 107  Burlington, MA  01803",
+841,10/03/2016,08-Jan-23,CE,HOPKINTON,FRUIT STREET WWTF,100000,Town of Hopkinton,"John Westerling, MPA",FRUIT STREET,"83 Wood Street  Hopkinton, MA  01748",
+842,06/07/2018,11-Sep-24,CE,BOXBOROUGH,CODMAN HILL CONDOMINIUM,19800,Codman Hill Condominium Association,Myra Miller,CODMAN HILL ROAD,"c/o ELN Management
+P.O. Box 798  Sudbury, MA  01776",
+843,12/15/2016,22-Mar-23,NE,WILMINGTON,REGENCY PLACE GARDENS,24200,"Regency Place Gardens, LP","Carla Stoner, CFO",121 WEST STREET,"999 Waterside Drive
+Suite 2300  Norfolk, VA  23510",
+847,06/21/2016,26-Sep-22,SE,BARNSTABLE,CAPE REGENCY HEALTHCARE CENTER,22350,Cape Regency RHCC,David Laakso,120 SOUTH MAIN STREET,"120 South Main Street  Centerville, MA  02632",
+848,05/25/2017,30-Aug-23,SE,BOURNE,BOURNE MANOR EXTENDED CARE FACILITY,22000,"Bourne Management Systems, Inc",,146 MACARTHUR BOULEVARD,"725 North Street  Pittsfield, MA  01201",
+849,06/05/2019,10-Sep-25,SE,WESTPORT,HORSENECK BEACH STATE RESERVATION,27460,DEPARTMENT OF CONSERVATION AND RECREATION,RUTH ADAMS-TEIXEIRA,JOHN REED ROAD,"251 CAUSEWAY STREET, Suite 700  BOSTON, MA  02114",
+850,09/14/2010,14-Sep-19,SE,BARNSTABLE,COTUIT MEADOWS,59000,"COTUIT EQUITABLE HOUSING, LLC",BRIAN T. DACEY,9999 FALMOUTH ROAD,"P.O. BOX 95  CENTERVILLE, MA  02632",
+851,03/16/2017,21-Jun-23,SE,HARWICH,WEQUASSETT RESORT & GOLF CLUB,45000,"Round Cove Resort Owner, LLC","Tom Burns, Managing Director",2171 ROUTE 28,"65 E 55th Street
+Floor 33  New York, NY  10022",
+852,06/22/2011,27-Sep-21,SE,BOURNE,RESIDENCES @ CANAL BLUFFS,31994,HOUSING ASSISTANCE CORP.,GISELE GAUTHIER,6 OTIS PARK DRIVE,"460 WEST MAIN STREET  HYANNIS, MA  02601",
+855,07/22/2020,22-Jul-25,NE,LINCOLN,THE COMMONS IN LINCOLN,36600,"NELP-Commons, LLC","Michael Harling, President",1 HARVEST CIRCLE,"5220 Spring Valley Road
+Suite 522  Dallas, TX  75254",
+856,03/11/2019,16-Jun-25,NE,WESTFORD,CORNERSTONE SQUARE,41000,"Westford LC, LLC",Kevin Eriksen,83 BOSTON ROAD,"4 Lan Drive  Westford, MA  01866",
+857,02/28/2023,28-Feb-28,CE,BERLIN,SAWYER HILL CO HOUSING DEVELOPMENT,21600,Sawyer Hill Ecohousing Condominium Trust,,SAWYER ROAD,"69 Village Court  Berlin, MA  01503",
+858,10/15/2018,19-Jan-25,SE,MARSHFIELD,VILLAGE AT PROPRIETOR'S GREEN,25000,"BMSH II Marshfield MA, LLC",Kathryn A. Sweeney,10 VILLAGE GREEN WAY,"C/o Blue Moon Capital Partners, LP
+699 Boylston Street, Suite 700  Boston, MA  02116",
+860,02/06/2019,13-May-25,SE,SANDWICH,SHAWNE-CROWELL STATE FOREST,25815,DEPT. OF CONSERVATION & RECREATION,JOSEPH YETMAN,42 MAIN STREET,"72 CRANBERRY ROAD  SOUTH CARVER, MA  02366",
+861,02/06/2019,13-May-25,SE,SANDWICH,SCUSSET BEACH STATE RESERVATION,22020,Massachusetts DCR,Joseph Yetman,140 SCUSSET BEACH ROAD,"251 Causeway Street
+Suite 700  Boston, MA  02114",
+862,04/01/2019,07-Jul-25,SE,BREWSTER,NICKERSON STATE PARK,50926,DEPT. OF CONSERVATION & RECREATION,JOSEPH YETMAN,3488 MAIN STREET,"72 CRANBERRY ROAD  SOUTH CARVER, MA  02366",
+867,05/06/2014,06-May-19,SE,EASTON,NORTH EASTON VILLAGE WWTP,50000,Town of Easton,,28 MAIN STREET,"136 Elm Street  Easton, MA  02356",
+868,05/14/2018,18-Aug-24,SE,SHARON,WILBER SCHOOL APARTMENTS,18150,"BC WILBER SCHOOL, LLC",PAMELA GOODMAN,75 SOUTH MAIN STREET,"150 FEDERAL STREET, 5TH FLOOR  BOSTON, MA  02110",
+869,03/06/2018,10-Jun-24,CE,SOUTHBOROUGH,FAY SCHOOL,21000,Fay School,Ron Wood,48 MAIN STREET,"48 Main Street
+P.O. Box 9106  Southborough, MA  01772",
+870,11/28/2017,04-Mar-24,SE,SCITUATE,HERRING BROOK MEADOWS,10890,"HERRING BROOK MEADOWS, LLC",JAMES R MOTZKIN,126 &132 CHIEF JUSTICE CUSHING HIGHWAY (ROUTE 3A),"265 NEWBURY STREET  PEABODY, MA  01960",
+872,06/19/2018,23-Sep-24,SE,HANOVER,WASHINGTON STREET SHOPPING CENTER,32000,Hanover Washington,Josh Katzen,1167 WASHINGTON STREET,"c/o Heller Property Management
+1207 Washington Street  Hanover, MA  02339",
+873,05/03/2011,08-Aug-21,SE,WELLFLEET,MASSASOIT HILLS TRAILER PARK,33900,"MASSASOIT HILLS TRAILER PARK, INC",Andrew Parkington,210 WEST ROAD,"210 WEST ROAD  SOUTH WELLFLEET, MA  02663",
+874,09/21/2020,21-Sep-25,CE,HOPKINTON,LEGACY FARMS,290000,"Legacy Farms Private PWTF, LLC.","Roy MacDowell, Jr",CLINTON STREET,"c/o Baystone Development
+21Center Street  Weston, MA  02493",
+875,12/19/2019,26-Mar-26,SE,PLYMOUTH,MCI PLYMOUTH,31000,MA Department of Correction,Jeffrey Quick / Colby Kaiser,1 BUMPS POND ROAD,"Division of Resource Management
+50 Maple Street, Suite #2  Milford, MA  01757",
+876,10/15/2018,19-Jan-25,SE,LAKEVILLE,THE RESIDENCES AT LEBARON HILLS,57900,LeBaron Hills WWTF Trust,"Muhammad Itani, Manager",LEBARON BOULEVARD,"c/o The Residences at LeBaron Hills, LLC
+32 Norfolk Avenue  South Easton, MA  02375",
+879,09/10/2018,14-Dec-24,WE,GRANBY,GRANBY HEIGHTS CONDOS,17600,"Granby Heights Association, Inc.",Steven Nally,AMHERST ROAD,"P.O. Box 105
+Amherst Road  Granby, MA  01033",
+880,09/25/2019,31-Dec-25,SE,SCITUATE,STOCKBRIDGE LANDING,17160,"SL Owner, LLC",Mark Pilotte - jeremy vieira,96-100 STOCKBRIDGE ROAD,"c/o Dakota Partners
+1264 Main Street  Waltham, MA  02451",
+881,09/04/2020,04-Sep-25,SE,PLYMPTON,SYSCO BOSTON/FREEDOM TRAIL,25000,"SYSCO BOSTON, LLC",CHUCK FRASER,99 SPRING STREET,"380 SOUTH WORCESTER STREET  NORTON, MA  02766",
+884,11/19/2019,24-Feb-26,SE,HINGHAM,DAMON FARM @ QUEEN ANNE CORNER,7040,"Damon Farms, LLC",Maureen Trifone 617 257 2754,1220 MAIN STREET,"P.O. Box 568  Milton, MA  02186",
+887,08/14/2009,14-Aug-18,SE,COHASSET,MASS HIGHWAY COHASSET MAINTENANCE DEPOT,0,MASS HIGHWAY,David White,CROCKER LANE,"10 PARK PLAZA  BOSTON, MA  02116",
+888,09/13/2018,17-Jan-25,NE,CONCORD,CONCORD MEWS,66000,"ComReg Prescott, LLC",Kevin Doody,ONE NATHAN PRATT DRIVE,"c/o BlackRock  ,   ",
+889,10/15/2018,19-Jan-25,SE,MARSHFIELD,THE VILLAGE AT MARSHFIELD,57310,"Home Properties Marshfield, LLC",LaSalette Kershaw,PLAIN STREET,"5 Middlesex Circle  Waltham, MA  02452",
+890,07/08/2010,08-Jul-19,SE,PLYMOUTH,RIVER RUN DEVELOPMENT,395000,RIVER RUN DEVELOPMENT,Dan or gigi,off WAREHAM ROAD,"ADM AGAWAM DEVELOPMENT LLC
+158 TIHONET ROAD  WAREHAM, MA  02571",
+893,08/07/2012,12-Nov-22,SE,SWANSEA,SWANSEA CROSSING PLAZA,34000,"GATOR SWANSEA, LLP",JAMES GOLDSMITH,207 SWANSEA MALL DRIVE,"1595 NE 1623RD STREET  NORTH MIAMI BEACH, FL  33162",
+895,09/09/2021,09-Sep-26,SE,EASTON,SOLAR SEAL,4800,SHAW GLASS COMPANY,FREDERIC SHAW,55 BRISTOL DRIVE,"55 BRISTOL DRIVE  EASTON, MA  02375",
+901,07/16/2019,21-Oct-25,NE,WESTFORD,GRANITEVILLE WOODS,43560,Graniteville Woods Condominium Trust,Lea Tremblay,off NORTH MAIN STREET,"c/o Northpoint Property Management, LLC
+55 Lake Street, 4th floor, Suite 5  Nashua, NH  03060",
+903,09/09/2011,15-Dec-21,SE,CARVER,DECAS CRANBERRY PRODUCTS,0,"DECAS CRANBERRY PRODUCTS, INC.",Michael Janick,4 OLD FORGE DRIVE,"4 OLD FORGE DRIVE  CARVER, MA  02330",
+904,11/29/2018,16-Apr-25,NE,SUDBURY,PRI LONGFELLOW GLEN,25000,"Longfellow Glen, LLC",Michael Hennessey,655 BOSTON POST ROAD,"c/o Providence Realty Investment, LLC
+30 Exchange Terrace  Providence, RI  O2903",
+905,12/20/2019,27-Mar-26,NE,WESTWOOD,HALE RESERVATION,28670,"Hale Reservation, Inc.",Tyler Simpson,80 CARBY STREET,"80 Carby Street  Westwood, MA  02090",
+906,08/06/2010,06-Aug-19,NE,WAYLAND,WAYLAND HIGH SCHOOL,12154,Wayland Public Schools,Kenneth (Ben) Keefe,264 OLD CONNECTICUT PATH,"41 Cochituate Road  Wayland, MA  01778",
+907,10/10/2019,15-Jan-26,SE,WRENTHAM,FOX RUN,38000,Fox Run Homeowners Associaiton Trust,"Denise Ritchie, Trustee",WARREN DRIVE,"P.O. Box 66  Wrentham, MA  02093",
+908,11/15/2019,20-Feb-26,SE,DUXBURY,ISLAND CREEK VILLAGE NORTH,66094,"DUGGAN BUILDERS, INC.",,30 TREMONT STREET,"62 OAK ROAD  CANTON, MA  02021",
+909,07/03/2020,03-Jul-25,CE,BERLIN,THE RIVERBRIDGE ASSOCIATION,66000,"The Riverbridge Association, Inc","Christopher Senie, President",RIVER ROAD WEST,"65 River Road West  Berlin, MA  01503",
+910,04/25/2011,31-Jul-21,SE,MIDDLEBORO,NEMASKET HEALTHCARE CENTER,15300,C/O WHITTIER HEALTH NETWORK,Ken Ducharme,314 MARION ROAD,"25 RAILROAD SQUARE  HAVERHILL, MA  01031",
+912,05/27/2011,01-Sep-21,SE,MIDDLEBORO,KOA CAMPGROUND,24480,"KAMPGROUNDS OF AMERICA, INC",CARL FIVES,438 PLYMOUTH STREET,"1240 GENERAL BOOTH BLVD  VIRGINIA BEACH, VA  23451",
+913,08/08/2012,13-Nov-22,SE,SHARON,CAMP WONDERLAND,16545,SALVATION ARMY MA DIVISION,Major Doris Gonsales,186 MASSAPOAG AVENUE,"25 SHAWMUT ROAD  CANTON, MA  02021",
+914,02/05/2018,12-May-24,WE,AMHERST,UMASS CHP BOILER,200000,University of Massachusetts - Amherst,Ray Jackson,200 MULLINS WAY,"Central Heating Plant
+200 Mullins Way  Amherst, MA  01003",
+915,07/09/2011,11-Oct-21,SE,HANOVER,SOUTH SHORE YMCA @ MILL POND,25000,South Shore YMCA,Daniel Berry,75 MILL STREET,"79 Codington Street  Quincy, MA  02169",
+916,02/14/2022,14-Feb-27,NE,IPSWICH,"NEW ENGLAND BIOLABS, INC",27500,"New England Biolabs, Inc.",Barry Cohen,240 COUNTY ROAD,"240 Country Road  Ipswich, MA  01938",
+919,07/27/2011,01-Nov-21,SE,MIDDLEBORO,"HANNAH B SHAW HOME FOR THE AGED, INC.",16050,"HANNAH B SHAW HOME FOR THE AGED, INC.",Bob Salomaa,299 WAREHAM STREET,"299 WAREHAM STREET  MIDDLEBORO, MA  02346",
+920,08/08/2011,13-Nov-21,SE,EAST BRIDGEWATER,EAST BRDGEWATER SCHOOL,30000,EAST BRIDGEWATER SCHOOL DEPARTMENT,Susan Mulloy,11 PLYMOUTH STREET,"11 PLYMOUTH STREET  EAST BRIDGEWATER, MA  02333",
+924,03/27/2012,14-Sep-18,NE,HAVERHILL,WHITTIER REGIONAL HIGH SCHOOL,22000,Whittier Regional Vocational Technical High School,Robert Hardy,115 AMESBURY LINE ROAD,"115 Amesbury Line Road  Haverhill, MA  01830",
+925,10/30/2018,16-Apr-25,CE,SOUTHBOROUGH,MADISON PLACE,27920,"Madison Place Southborough, LLC",Robert Moss /Jennifer,1200 MADISON PLACE,"53 Sears Road  Southborough, MA  01581",
+926,10/09/2012,14-Sep-16,CE,LEICESTER,STAFFORDSHIRE PROPERTIES,21000,"Stafford Street Properties, LLC",Greg Jouki,500-510 STAFFORD STREET,"83 Keystone Street  Leominster, MA  01453",
+927,07/12/2018,16-Oct-24,NE,WESTFORD,PRINCETON WESTFORD APARTMENT HOMES,39220,"Princeton Westford Apartment Homes, LLC",Richard Bleakley,16 LITTLETON ROAD,"1115 Westford Street  Lowell, MA  01851",
+928,01/10/2018,16-Apr-24,CE,ACTON,RESIDENCES AT QUAIL RIDGE,34975,The Residences at Quail Ridge Condominium,Mark Mastroianni,354B GREAT ROAD,"115 Flanders Road
+Suite 200  Westborough, MA  01581",
+929,07/31/2017,05-Nov-23,SE,ORLEANS,ORLEANS HOUSING AUTHORITY,18500,ORLEANS HOUSING AUTHORITY,TIMOTHY BUHLER,94 HOPKINS LANE,"94 HOPKINS LANE  ORLEANS, MA  02653",
+930,12/26/2017,01-Apr-24,SE,TAUNTON,"GLOBALCYCLE, INC.",96000,"Globalcycle, Inc.",Stephen Pozner,700 RICHMOND ST.,"700 Richmond Street
+Unit #4  Taunton, MA  02718",
+931,06/06/2018,16-Apr-25,NE,NORTH READING,NORTH READING HIGH/MIDDLE SCHOOL,17500,Town of North Reading,Michael Connelly,191 PARK STREET,"235 North Street  North Reading, MA  01864",
+932,08/14/2014,14-Aug-19,SE,EASTON,EASTON HOUSING AUTHORITY,27600,Easton Housing Authority,Michael Forbes,ELISE CIRCLE & PARKER TERRACE,"Parker Terrace  North Easton, MA  02356",
+934,01/16/2020,23-Apr-26,SE,BREWSTER,KINGS LANDING,23858,Preservation of Affordable Housing,Mike Donovan,3 STATE STREET,"OAH KING'S LANDING, LLC
+40 COURT STREET/SUITE 700  BOSTON, MA  02108",
+935,02/26/2016,03-Jun-22,SE,EASTON,QUESET COMMONS,100000,"DOUGLAS KING BUILDERS, INC.",Sam Schofield,WASHINGTON ST & BELMONT ST.,"115 MAIN STREET
+Suite 1D  NORTH EASTON, MA  02356",
+936,08/26/2019,01-Dec-25,CE,LITTLETON,VILLAGE GREEN,55000,"FRGSP, LLC","David Hale, Manager",15 GREAT ROAD,"200 Baker Avenue
+Suite 303  Concord, MA  01742",
+937,05/31/2018,16-Apr-25,CE,BOLTON,"PARAGON HOLDINGS, LLC",16000,"Paragon Holdings, LLC",Paul Gentili,41 MAIN STREET,"41 Main Street  Bolton, MA  01740",
+939,03/06/2019,11-Jun-25,SE,BOURNE,UPPER CAPE COD REGIONAL TECHNICAL SCHOOL,18000,Upper Cape Cod Regional Technical School,Robert Dutch,220 SANDWICH ROAD,"220 Sandwich Road  Bourne, MA  02532",
+940,08/22/2014,22-Aug-19,SE,ATTLEBORO,HOMETOWN OAKHILL - MOBILE HOME PARK,53400,"HOMETOWN OAKHILL, LLC",KYLE HOWIESON,1003 OAKHILL AVENUE,"1003 OAKHILL AVENUE  ATTLEBOROUGH, MA  02703",
+943,04/24/2014,24-Apr-19,SE,MASHPEE,MASHPEE VILLAGE,38000,Mashpee Village,John Economos,1 WAMPANOAG DRIVE,"1 Wampanoag Drive  Mashpee, MA  02649",
+945,12/24/2019,31-Mar-26,CE,BROOKFIELD,WAGON WHEEL COMMUNITY WWTF,23022,"Wagon Wheel Community, Inc.",Wayne Morris,RICE CORNER ROAD,"13 Buckboard Pass  Brookfield, MA  01506",
+946,08/20/2019,25-Nov-25,SE,PLYMOUTH,THE VILLAGES AT SAWMILL WOODS,66000,SAWMILL DEVELOPMENT CORPORATION,John Pomeroy,SAWMILL ROAD,"68 KATHLEEN DRIVE  PLYMOUTH, MA  02360",
+948,02/13/2009,13-Feb-18,CE,TOWNSEND,CORONA FILMS,0,"Corona Films, Inc.",Gary Lahti,241 DUDLEY ROAD,"241 Dudley Road  Townsend, MA  01474",
+949,01/05/2009,05-Jan-18,CE,TOWNSEND,TOWNSEND MUNICIPAL LANDFILL,100000,Town of Townsend,,33 GREENVILLE ROAD,"Board of Health
+272 Main Street  Townsend, MA  01469",
+950,06/11/2014,14-Sep-18,SE,SWANSEA,OAKWOOD BAYCOAST,23491,"OAKWOOD BAYCOAST, LLC",JAMES WALLACE,330 SWANSEA MALL DRIVE,"456 ROCK STREET  FALL RIVER, MA  02722",
+951,02/05/2015,05-Feb-20,SE,BREWSTER,MAPLEWOOD AT BREWSTER,19800,"Brewster ALF Property, LLC",Shani Walter,820 HARWICH ROAD,"303 International Circle
+Suite 200  Hunt Valley, MD  21030",
+952,09/09/2020,09-Sep-25,WE,MONTEREY,GOULD FARM,20440,Gould Farm,Lisanne Finston,100 GOULD ROAD,"100 Gould Road  Monterey, MA  01245",
+953,11/01/2018,16-Apr-25,NE,NORTH READING,ATLANTIC SHOPPING PLAZA,25000,"FAE Atlantic Plaza, LLC","Nina Regan, CRRP",267-271 MAIN STREET,"11501 Northlake Drive  Cincinnati, OH  45249",
+954,05/12/2015,17-Aug-21,SE,CATAUMET,CATAUMET HARBOR WWTF,32430,"Cataumet Harbor Wastewater Treatment Facility, LLC",Scott Zeien,CAL PATH,"P.O. Box 408  Cataumet, MA  02534",
+957,01/24/2019,30-Apr-25,CE,HOPKINTON,HOPKINTON MEWS,57000,"IMP Hopkinton, LLC","Frank Huemmer, Vice President",5 CONSTITUITION COURT,"c/o GID
+125 High Street, 27th floor  Boston, MA  02110",
+958,05/18/2018,16-Apr-25,CE,BOXBOROUGH,JEFFERSON AT BEAVER BROOK,39820,"Jefferson at Beaver Brook, LLC",Greg Belew,1 PADDOCK LANE,"600 Las Colinas Blvd.
+Suite 1800  Irving, TX  75039",
+959,06/12/2018,16-Sep-24,WE,LEE,WILLOW MILL,0,"Onyx Specialty Papers, Inc",Andrew Begrowicz,40 WILLOW STREET,"40 Willow Street  South Lee, MA  01260",
+961,11/16/2015,21-Feb-22,SE,HANOVER,WEBSTER VILLAGE,14300,"Webster Village, LLC",Mike McGonigle,295 WEBSTER STREET,"4 First Street  Bridgewater, MA  02324",
+962,07/29/2021,29-Jul-26,SE,SHARON,SHARON RESIDENCES PROJECT,44000,"Continuing Care Management, LLC",Jeffrey Robinson,135 OLD POST ROAD,"1 Lyman Street  Westborough, MA  01581",
+963,06/14/2023,14-Jun-23,CE,DEVENS,U.S. ARMY GARRISON FORT DEVENS,13725,U.S. Army Garrison Fort Devens,Raymond A. Prisk,30 QUEBEC STREET,"30 Quebec Street
+Box 10  Devens, MA  01434-4479",
+963,06/14/2023,14-Jun-23,CE,DEVENS,U.S. ARMY GARRISON FORT DEVENS,13725,,Zygmunt Osiecki,30 QUEBEC STREET,"  ,   ",
+965,05/13/2016,18-Aug-22,SE,SANDWICH,SPAULDING REHAB HOSPITAL,13250,Rehabilitation Hospital of the Cape and Islands Co,Carl Smith,311 SERVICE ROAD,"311 Service Road  East Sandwich, MA  02537",
+966,02/28/2022,28-Feb-27,WE,SOUTHAMPTON,LONGHILL GARDENS,12870,"Longhill Gardens, LLC",Gabriel Dorfman,134 COLLEGE HIGHWAY,"9 Perlman Drive
+Suite 207  Spring Valley, NY  10977",
+968,05/25/2017,30-Aug-23,SE,DENNIS,SALT AIR VILLAGE,19360,Salt Air Realty Trust,Constance Betters,262 OLD WHARF ROAD,"P.O. Box 503
+262 Old Wharf Road  Dennisport, MA  02639",
+969,07/14/2017,19-Oct-23,SE,YARMOUTH,CAVALIER MOTOR LODGE REDEVELOPMENT,14190,Dakota Partners,Rio Sachetti,881 ROUTE 28,"1264 Main Street  Waltham, MA  02451",
+970,10/17/2017,22-Jan-24,SE,HALIFAX,"HALIFAX MOBILE HOMES, INC",47300,"Halifax Mobile Homes, Inc",Nancy Froio,50 SYCAMORE DRIVE,"50 Sycamore Drive  Halifax, MA  02338",
+971,11/20/2017,25-Feb-24,NE,NORTH READING,MARTINS LANDING WWTF,66520,Martin's Landing Condominium Trust,"Mark Mastroianni, Trustee",104 LOWELL ROAD,"115 Flanders Road
+Suite 200  Westborough, Ma  01581",
+972,01/25/2018,01-May-24,SE,DENNIS,CAMPER'S HAVEN REC VEHICLE & COTTAGE RESORT,31020,"NHC-MA101, LLC  (Sun Communities)",John McLaren,184 OLD WHARF ROAD,"27777 Franklin Road
+Suite 200  Southfield, MI  48304",
+973,02/28/2018,04-Jun-24,SE,WRENTHAM,LEDGEVIEW PARK WRRF,100130,"Ledgeview Waste Water Treatment Facility, LLC",Robert Walker,"LOT 4, LEDGEVIEW WAY","4 Lan Drive  Westford, MA  01866",
+974,03/16/2018,20-Jun-24,SE,BOURNE,BUZZARDS BAY WWTF,100000,Town of Bourne,"Thomas Guerino, Town Administrator",QUEEN SEWELL PARK,"Bourne Town Hall
+24 Perry Avenue, Room 101  Bourne, MA  02532",
+975,03/01/2018,05-Jun-24,SE,NORTON,NORTON WATER TREATMENT PLANT,13000,Norton Water and Sewer Department,,PLAIN STREET,"166 John Scott Blvd
+P.O. Box 1168  Norton, MA  02766",
+976,05/08/2018,12-Aug-24,SE,HINGHAM,THE RESIDENCE AT PENNIMAN HILL,15300,"LCB Penniman Hill, LLC",,276 WHITING STREET,"3 Edgewater Drive
+Suite 101  Norwood, MA  02062",
+977,05/31/2018,04-Sep-24,SE,BREWSTER,CAPE COD SEA CAMPS,28450,Cape Cod Sea Camps,Ed Barber,3057 MAIN STREET,"3057 Main Street
+P.O. Box 1880  Brewster, MA  02631",
+978,07/02/2018,06-Oct-24,SE,PEMBROKE,PEMBROKE HOSPITAL,32000,"UHS of Westwood Pembroke, Inc.",Michael Perry,199 OAK STREET,"dba Pembroke Hospital
+199 Oak Street  Pembroke, MA  02359",
+979,06/27/2018,31-Oct-24,WE,MONTEREY,HUME NEW ENGLAND,25000,Hume Lake Christian Camps,Stephen Roskidany,73 CHESTNUT HILL ROAD,"64144 Hume Lake Road  Hume, CA  93628",
+981,08/30/2018,04-Dec-24,WE,SUNDERLAND,SUGARBUSH MEADOWS/PR LMP AMHERST RD,39500,"PR LMP AmherstRd, LLC",Patrick Turney,653 AMHERST ROAD,"Landmark Properties
+653 Amherst Road  Sunderland, MA  01375",
+982,10/01/2018,05-Jan-25,SE,EASTHAM,CAMPBELL-PURCELL COMMUNITY HOUSING,12175,"Penrose Properties, LLC",Charlie Adams,140 BRACKETT ROAD,"50 Milk Street
+16th Floor  Eastham, MA  02109",
+983,05/22/2019,27-Aug-25,SE,FALMOUTH,CAPE CLUB WWTF,31400,"FWG, LLC",David Spiegel,125 FALMOUTH WOODS ROAD,"PO Box 890  Norwood, MA  02062",
+984,01/24/2019,30-Apr-25,SE,MARSHFIELD,MODERA MARSHFIELD WWTF,55000,"Marshfield Mews, LLC",Jamie Thompson,COMMERCE ROAD,"c/o Mill Creek Residential
+200 Summit Drive, Suite 450  Burlington, MA  01803",
+985,02/13/2019,16-Apr-25,CE,STURBRIDGE,BOSTON RV RESORT & COTTAGES,31050,"Boston RV & Cottages-Sturbridge, LLC",Philip Moreau,30 RIVER ROAD,"25515 Via Mariquita
+Suite 100  Carmel, CA  93923",
+987,08/19/2019,24-Aug-19,SE,DENNIS,CHASES OCEAN GROVE,44000,"Chases Ocean Grove, Inc.",Mark DeWitt,251 OLD WHARF ROAD,"251 Old Wharf Road  Dennisport, MA  02639",
+991,11/20/2019,25-Feb-26,SE,DENNIS,OLD CHATHAM ROAD RV RESORT,40020,"MHC Old Chatham Road, LLC",Greggory Kane,310 OLD CHATHAM ROAD,"Two North Riverside Plaza
+Suite 800  Chicago, IL  60606",
+992,10/01/2019,06-Jan-26,NE,WESTON,PINE BROOK COUNTRY CLUB,16000,Pine Brook Country Club,David Garfinkel,42 NEWTON STREET,"42 Newton Street  Weston, MA  02493",
+993,03/31/2020,31-Mar-25,SE,ORLEANS,ORLEANS WWTF,595100,Town of Orleans,Thomas Daley,29 OVERLAND WAY,"Director of Public Works & Natural Resources
+40 Giddiah Hill Road  Orleans, MA  02653",
+994,02/14/2020,22-May-26,NE,EVERETT,ENCORE,8640,Encore Boston Harbor,"Jason Survilas, Asst Chief Engineer",ONE BROADWAY,"One Broadway  Everett, MA  02149",
+996,10/30/2020,30-Oct-25,NE,SUDBURY,COLD BROOK CROSSING,49755,Cold Brook Crossing Landowners Trust,Christopher Claussen,36 NORTH ROAD,"2134 Sevilla Way  Naples, FL  34109",
+999,12/30/2021,30-Dec-26,NE,WAYLAND,WAYLAND WWTF,37380,Town of Wayland,Paul Brinkman,185 ELISSA AVENUE,"41 Cochituate Road  Wayland, MA  01778",
+1003,09/14/2022,14-Sep-27,SE,CARVER,JELLYSTONE PARK CRANBERRY ACRES,30000,Northgate Holdings (NGR Cape Cod LLC),"Shannon Sullivan, President",20 SHOESTRING ROAD,"38 Commerce Avenue
+Suite 200  Grand Rapids, MI  49503",
+1006,05/22/2023,22-May-28,NE,WESTON,RIVERSIDE LABS B20  WWTFS,12020,Weston Ground Lessee LLC,Kevin Sheehan,20 RIVERSIDE ROAD,"One Federal Street
+18th Floor  Boston, MA  02110",
+,,,,,,,,,,,PARAMETER
+,,,,,,,,,,,Facility Status: Active
+,,,,,,,,,,,Permit Status: Active
